@@ -1,0 +1,17 @@
+package ch02;
+
+
+/*
+ * 컴퓨터(CPU)는 구조상 덧셈연산을 할 수 있다(o)
+ * 컴퓨터(CPU)는 구조상 뺄셈연산을 할 수 있다(ㅌ)
+ * 
+ */
+
+public class c02음수 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,14 @@
+package ch00; // 패키지 구별코드
+
+public class C00HELLOWORLD	//클래스 영역(객체지향 문법 적용 범위) 
+{
+
+	public static void main(String[] args)	//메서드 영역(절차지지향 문법 적용 범위) 
+	{ 
+		
+
+		System.out.println("HELLOEWORLD");
+		
+	}
+
+}

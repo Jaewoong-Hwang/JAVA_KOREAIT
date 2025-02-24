@@ -1,0 +1,10 @@
+package ch00;
+
+public class ch01SystemOut {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

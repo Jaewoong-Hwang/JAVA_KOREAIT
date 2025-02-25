@@ -12,10 +12,10 @@ public class c05상수 {
 		//f, F :float 자료형
 		
 		
-	int a = 'a';
-	System.out.println((int)a);
-	System.out.println((char)a);
-	
+//	int a = 'a';
+//	System.out.println((int)a);
+//	System.out.println((char)a);
+//	
 	
 	
 	int n1 = 100; //100은 리터럴 상수
@@ -25,8 +25,11 @@ public class c05상수 {
 	
 	double result = PI*4*4;  	//
 	
-	//double a = 1e-3;
-//	System.out.println(a);
+	double a = 1e-3;
+	System.out.println(a);
+	System.out.println(PI);
+	System.out.println(result);
+	
 	
 	}
 	

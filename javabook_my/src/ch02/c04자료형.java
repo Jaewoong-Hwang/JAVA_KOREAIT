@@ -103,43 +103,44 @@ public class c04자료형 {
 		
 		
 		//--------------------
-				//단일문자 char 2byte 정수
-				//--------------------
-//				char ch1 = 'a';
-//				System.out.println(ch1);
-//				System.out.println((int)ch1); // 011000001
-		//	
+//				단일문자 char 2byte 정수					
+//				--------------------						//숫자나 문자나 모두 숫자로 담아낸다
+//															//단일 문자는 아스키코드를 참고
+				char ch1 = 'a';								//숫자로 처리되기 때문에 연산작업도 가능하다
+				System.out.println(ch1);
+				System.out.println((int)ch1); // 011000001
+			
 //				
-//				char ch2 = 98;
-//				System.out.println(ch2);
-//				System.out.println((int)ch2); // 011000010
+				char ch2 = 98;
+				System.out.println(ch2);
+				System.out.println((int)ch2); // 011000010
 //				
-//				char ch3 = 'b'+1;
-//				System.out.println(ch3);
-//				System.out.println((int)ch3); // 011000011
-//				
-//				byte ch4 = 'c'+2;
-//				System.out.println((char)ch4);
-//				System.out.println(ch4); // 011000011
+				char ch3 = 'b'+1;
+				System.out.println(ch3);
+				System.out.println((int)ch3); // 011000011
 				
-//				char ch5  = 0xac00;
-//				char ch6 = 44032;
+				byte ch4 = 'c'+2;
+				System.out.println((char)ch4);
+				System.out.println(ch4); // 011000011
+				
+				char ch5  = 0xac00;
+				char ch6 = 44032;
 //				
-//				System.out.println(ch5);
-//				System.out.println(ch6);
-//				System.out.println((char)(0b1010110000000000+1));
+				System.out.println(ch5);
+				System.out.println(ch6);
+				System.out.println((char)(0b1010110000000000+1));
 				 
-//				char ch6 = 0xac00+1;
-//				System.out.printf("%c %c\n", ch5,ch6);
+				char ch6 = 0xac00+1;
+				System.out.printf("%c %c\n", ch5,ch6);
 //				
-//				// \\u :유니코드값 이스케이프문자
-//				System.out.printf("%c\n", '\uACa1');
+				// \\u :유니코드값 이스케이프문자
+				System.out.printf("%c\n", '\uACa1');
+				    
+				System.out.printf("TEST : %c\n", '\uabcd');
 				
-//				System.out.printf("TEST : %c\n", '\uabcd');
 				
-				
-//				char n = 10;
-//				System.out.printf("HELLO %c WORLD", n);
+				char n = 10;
+				System.out.printf("HELLO %c WORLD", n);
 				
 				
 				//--------------------

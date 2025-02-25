@@ -123,24 +123,24 @@ public class c04자료형 {
 				System.out.println((char)ch4);
 				System.out.println(ch4); // 011000011
 				
-				char ch5  = 0xac00;
-				char ch6 = 44032;
-//				
-				System.out.println(ch5);
-				System.out.println(ch6);
-				System.out.println((char)(0b1010110000000000+1));
+//				char ch5  = 0xac00;
+//				char ch6 = 44032;
+////				
+//				System.out.println(ch5);
+//				System.out.println(ch6);
+//				System.out.println((char)(0b1010110000000000+1));
 				 
-				char ch6 = 0xac00+1;
-				System.out.printf("%c %c\n", ch5,ch6);
+//				char ch6 = 0xac00+1;
+//				System.out.printf("%c %c\n", ch5,ch6);
+////				
+//				// \\u :유니코드값 이스케이프문자
+//				System.out.printf("%c\n", '\uACa1');
+//				    
+//				System.out.printf("TEST : %c\n", '\uabcd');
 //				
-				// \\u :유니코드값 이스케이프문자
-				System.out.printf("%c\n", '\uACa1');
-				    
-				System.out.printf("TEST : %c\n", '\uabcd');
-				
-				
-				char n = 10;
-				System.out.printf("HELLO %c WORLD", n);
+//				
+//				char n = 10;
+//				System.out.printf("HELLO %c WORLD", n);
 				
 				
 				//--------------------

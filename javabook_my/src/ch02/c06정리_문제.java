@@ -38,9 +38,9 @@ public class c06정리_문제 {
 		float var = 3.14						//( 	)
 		double var = 100.0						//(  	)
 		String var = "나의직업은 "개발자" 입니다.";		//(  o	)
-		boolean var = 0;						//(  	)
-		int v2 = 1e2;							//( 	)
-		float =1e2f;							//(  	)
+		boolean var = 0;						//(  o)
+		int v2 = 1e2;							//( x	)
+		float =1e2f;							//(  o	)
 
 	}
 

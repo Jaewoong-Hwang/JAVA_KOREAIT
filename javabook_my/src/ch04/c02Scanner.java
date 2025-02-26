@@ -27,9 +27,9 @@ public class c02Scanner {
 //		System.out.printf("문자열 : %s %s %s\n", s1, s2, s3);
 
 		
-		System.out.print("문자열 입력(띄어쓰기 포함) : ");
-		String str2 = sc.nextLine();				//띄어쓰기도 문자열로. 엔터키로 반환
-		System.out.println("문자열 : " + str2);
+//		System.out.print("문자열 입력(띄어쓰기 포함) : ");
+//		String str2 = sc.nextLine();				//띄어쓰기도 문자열로. 엔터키로 반환
+//		System.out.println("문자열 : " + str2);
 	}
 
 }

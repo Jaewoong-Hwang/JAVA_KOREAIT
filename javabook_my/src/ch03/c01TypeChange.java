@@ -19,6 +19,27 @@ public class c01TypeChange {
 		int b= a;
 		
 		//byte > short,char > int > long > float > double
+		
+		
+		byte byteValue = 10;			//int 에서 byte 로 알아서 형변환
+		int intValue = byteValue;
+		System.out.println("intValue: " + intValue);
+		
+		char charValue = '가';		// 첫 번째 형변환
+		intValue = charValue;		// 두 번재 형변환
+		System.out.println("가 의 유니코드:" + intValue);
+		
+		intValue = 50;
+		long longValue = intValue;
+		
+		longValue = 100;
+		float floatValue = longValue;
+		System.out.println("floatValue:" + floatValue);
+		
+		floatValue = 100.5F;
+		double doubleValue = floatValue;
+		System.out.println("doubleValue:" + doubleValue);
+				
 	}
 
 }

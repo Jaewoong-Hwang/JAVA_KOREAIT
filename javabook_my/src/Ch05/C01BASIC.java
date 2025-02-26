@@ -113,21 +113,21 @@ public class C01BASIC {
 		//-------------------------
 		//++a(--a) : 전치 연산자 : 먼저 값 1증가(1감소) 이후 다른 연산자 처리
 		//a++(a--) : 후치 연산자 : 다른 연산자 처리 먼저 한 후 1증가(1감소)
-		int a = 10, b = 10, c, d=0;
-		
-		c = --a + b++;
-		d = a-- + ++b;
-		System.out.printf("a=%d , b=%d , c=%d, d=%d", a, b, c, d);
-		
+//		int a = 10, b = 10, c, d=0;
+//		
+//		c = --a + b++;
+//		d = a-- + ++b;
+//		System.out.printf("a=%d , b=%d , c=%d, d=%d", a, b, c, d);
+//		
 	
 
 		//-------------------------
 		//삼항 연산자
 		//-------------------------
 		// (조건식)? 참인경우 실행코드 : 거짓인경우 실행코드;		
-//		int score = 85;
-//		char grade = (score > 90) ? 'A' : ((score > 80) ? 'B' : 'C');
-//		System.out.println(score + "점은 " + grade + "등급입니다.");
+		int score = 95;
+		char grade = (score > 90) ? 'A' : ((score > 80) ? 'B' : 'C');
+		System.out.println(score + "점은 " + grade + "등급입니다.");
 		
 		
 	}

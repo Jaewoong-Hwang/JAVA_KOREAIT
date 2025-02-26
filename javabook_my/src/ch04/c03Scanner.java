@@ -14,7 +14,8 @@ public class c03Scanner {
 
 		//네트워크환경에서의 buffer 란 속도차이를 해결하기 위한 공간, Enter에 대한 이슈가 있음 ==> nextLine 은 버퍼공간에 엔터가 남아 있다고 판단해서 sc.nextLine();을 써야함
 		//nextLine만 쓰거나 아니면 혼용해서 쓰려면 꼭 sc.nextLine()을 확인
-		sc.nextLine();
+		
+		sc.nextLine(); //버퍼 비우기
 		
 		System.out.print("문자열 입력(띄어쓰기 포함) : ");
 		String str2 = sc.nextLine();				//띄어쓰기도 문자열로. 엔터키로 반환

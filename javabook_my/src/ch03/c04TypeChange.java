@@ -11,7 +11,7 @@ public class c04TypeChange {
 //
 //		int result2 = x + y;
 //		System.out.println(result1);
-		
+//		
 		
 //		//정수 연산식(int 보다 큰 변수자료형(long))
 //		//큰 타입으로 자동 형 변환
@@ -21,7 +21,7 @@ public class c04TypeChange {
 //		int result =(int)(var1 + var2 + var3);				
 //													
 //		long result2 = var1 + var2 + var3;
-//		//System.out.println(result2);	
+//		System.out.println(result2);	
 		
 		//실수연산식 
 		//큰 타입으로 자동 형 변환

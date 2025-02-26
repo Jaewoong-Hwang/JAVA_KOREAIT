@@ -13,18 +13,23 @@
 문제
 --------------------------------------------------------
 1. 다음 코드에서 컴파일 에러가 발생하는 위치와 이유를 설명해보세요
+2번에서 컴파일에러가 뜬다.
+java에서는 byte, short, char 타입의 변수에 단항 연산자 -를 적용하면, 자동으로 int로 변환.
+b= (byte)-b; 를 해줘야 함.java는 int를 byte로 자동 형변환 해주지 않기 때문에 명시적 형변환을 해야함.
+
 
 
 [예시]
 ----------------------------
 byte b = 5;						//1
-b = -b;							//2
+b = -b;							//2  
 int result = 10 / b;			//3
 System.out.println(result);		//4 
 ----------------------------
 
 
 2. 다음 코드를 실행했을 때 출력 결과는 무엇입니까?
+답은 30
 
 [예시]
 ----------------------------
@@ -43,7 +48,7 @@ System.out.println(z);
 ----------------------------
 int var1 = 5;
 int var2 = 2;
-double var3 = var1 / var2;
+double var3 = var1 / var2;   ==> double var3 = (double)var1 / var2  
 int var4 =(int)(var3 * var2);
 System.out.println(var4);
 ----------------------------
@@ -56,9 +61,9 @@ System.out.println(var4);
  int x = 10;
  int y = 5;
  System.out.println( (x>7) && (y<=5) );
- -> (			)
+ -> (		true	)
  System.out.println( x%3 ==2) || (y%2 !=1) );
- -> (			)
+ -> (		false	)
 ----------------------------
 
 5 대입 연산자와 산술연산자로 구성된 실행문을

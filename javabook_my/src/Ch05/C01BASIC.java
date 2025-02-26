@@ -44,14 +44,14 @@ public class C01BASIC {
 		//-------------------------
 		//비교 연산자
 		//-------------------------
-//		int a =10;
-//		int b=20;
-//		System.out.println("A == B : "+ (a == b)); // a=b
-//		System.out.println("A  > B : "+ (a > b));
-//		System.out.println("A  < B : "+ (a < b));
-//		System.out.println("A >= B : "+ (a >= b));
-//		System.out.println("A <= B : "+ (a <= b));
-//		System.out.println("A != B : "+ (a != b));
+		int a =10;
+		int b=20;
+		System.out.println("A == B : "+ (a == b)); // a=b
+		System.out.println("A  > B : "+ (a > b));
+		System.out.println("A  < B : "+ (a < b));
+		System.out.println("A >= B : "+ (a >= b));
+		System.out.println("A <= B : "+ (a <= b));
+		System.out.println("A != B : "+ (a != b));
 		
 		
 		

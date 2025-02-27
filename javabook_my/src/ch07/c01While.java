@@ -31,23 +31,50 @@ public class c01While {
 //			System.out.println("HELLOWORLD");
 //			i++;
 //		}
+
+		// 03 기본 - 1부터 10까지의 합
+
+//		int i = 1; //탈출용변수
+//		int sum = 0; //누적합 변수
+//		while(i<=10) //탈출 조건식
+//		{
+//			System.out.println("i :" + i);
+//			sum = sum + i;
+//			i++;	//탈출용 연산식
+//		}
+//		System.out.println("SUM : " + sum);
+
+		// 04 기본 -1 부터 N까지 합
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//		int sum = 0;
+//		while(sum<n) {
+//			sum = sum + n;
+//			n++;		
+//		}
+//		System.out.println("SUM : " + sum);
+
+		// 05 기본 - N부터 M까지 합(N<M) - N>=M인 경욱 N과 M을 Swap하고 진행한다
+//		Scanner sc = new Scanner(System.in);
 		
-		//03 기본 - 1부터 10까지의 합
-		
-		int i = 1; //탈출용변수
-		int sum = 0; //누적합 변수
-		while(i<=10) //탈출 조건식
-		{
-			System.out.println("i :" + i);
-			sum = sum + i;
-			i++;	//탈출용 연산식
-		}
-		System.out.println("SUM : " + sum);
-		
-		//04 기본 -1 부터 N까지 합
-		//05 기본 - N부터 M까지 합(N<M) - N>=M인 경욱 N과 M을 Swap하고 진행한다
+//		int n = sc.nextInt();
+//		int m = sc.nextInt();
+//		
+//		if(n>=m) {
+//			int tmp = n;
+//			n = m;
+//			m = tmp;
+//		}
+//		int i =1;
+//		int sum=0;
+//		while(i<=m) {
+//			System.out.println("i : " + i );
+//			sum = sum + i;
+//			i++;
+//			
+//		}
+//		System.out.println("SUM : " + sum);
 		
 
 	}
 }
-

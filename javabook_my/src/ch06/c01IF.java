@@ -56,8 +56,9 @@ public class c01IF {
 //			
 //		}else if(num1 < num2)
 //			System.out.printf("%d 가(이) %d 보다 더 큰 수 입니다.", num2, num1);
+//		----------------------------------------------------------------------------
 		
-		//문제 3
+		//문제 3	==> 세 개의 수가 나온다면 공식 ===> 하나의 공간을 만들어줘야 함
 //		System.out.println("정수 세 개를 입력 해주시면, 두 수를 비교해서 더 큰 수를 출력해드립니다.");
 //		System.out.println("정수 입력 :");
 //		int num1 = sc.nextInt();
@@ -66,6 +67,7 @@ public class c01IF {
 //		System.out.println("정수 입력 :");
 //		int num3 = sc.nextInt();
 //		
+		
 //		if(num1 > num2 && num1 > num3) {
 //			System.out.printf("%d 가(이) %d 와(과) %d 보다 더 큰 수 입니다.", num1, num2, num3);
 //		}else if(num2 > num1 && num2 > num3) {
@@ -74,6 +76,8 @@ public class c01IF {
 //			System.out.printf("%d 가(이) %d 와(과) %d 보다 더 큰 수 입니다.", num3, num1, num2);
 //		}
 		
+//		----------------------------------------------------------------------------
+
 		//문제4
 //		System.out.println("정수 세 개를 입력 해주시면, 총합과 평균(소수점 두 번째 까지)을 출력해드립니다.");
 //		System.out.println("정수 입력 :");
@@ -85,11 +89,13 @@ public class c01IF {
 //		
 //		
 //		int sum = num1 + num2 + num3;
-//		double avg = (double)(sum) / 3;
+//		double avg = (double)sum / 3;
 //		System.out.printf("%d , %d , %d 의 총합은 : %d\n", num1, num2, num3, sum);
 //		System.out.printf("%d , %d , %d 의 평균은 : %.2f\n", num1, num2, num3, avg);
 		
-		
+//		----------------------------------------------------------------------------
+
+		 
 		//문제 5
 		//입력한 수가 짝수이고, 3의 배수라면 출력
 		//입력한 수가 홀수이고, 5의 배수라면 출력
@@ -102,9 +108,18 @@ public class c01IF {
 			System.out.printf("%d 는(은) 짝수입니다.", num);
 			if(num % 3 ==0) {
 				System.out.printf("%d 는(은) 3의 배수입니다.", num);
+				if(num % 6 ==0) {
+					System.out.printf("%d 는(은) 짝수이면서 3의 배수입니다.", num);
+				}
+				
 			}
-		}else 
-			System.out.printf("%d 는(은) 둘 다 아닌 수 입니다.", num);
+		}else if(num % 2 !=0) {
+			System.out.printf("%d 는(은) 홀수 입니다.", num);
+			if(num % 5 ==0) {
+				System.out.printf("%d 는(은) 5의 배수 입니다.", num);
+			}
+		}
+			
 		
 		
 		

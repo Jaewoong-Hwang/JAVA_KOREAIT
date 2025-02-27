@@ -2,7 +2,7 @@ package ch06;
 
 import java.util.Scanner;
 
-public class C01IF {
+public class c01IF {
 
 	public static void main(String[] args) {
 

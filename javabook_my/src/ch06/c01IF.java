@@ -153,29 +153,71 @@ public class C01IF {
 //		입력한 수가 짝수이고, 3의 배수라면 출력 (n%2==0 && n%3==0)
 //		입력한 수가 홀수이고, 5의 배수라면 출력 (n%2==1 && n%5==0)
 		
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-
-		//01
-//		if(n%2==0 && n%3==0)
-//			System.out.printf("%d 는 짝수이면서 3의배수입니다\n",n);
+//		Scanner sc = new Scanner(System.in);
+//		int n = sc.nextInt();
+//
+//		//01
+////		if(n%2==0 && n%3==0)
+////			System.out.printf("%d 는 짝수이면서 3의배수입니다\n",n);
+////			
+////		if(n%2==1 && n%5==0)
+////			System.out.printf("%d 는 홀수이면서 5의배수입니다\n",n);
+//		
+//		if(n%2==0) {
 //			
-//		if(n%2==1 && n%5==0)
-//			System.out.printf("%d 는 홀수이면서 5의배수입니다\n",n);
+//			if(n%3==0)
+//				System.out.printf("%d 는 짝수이면서 3의배수입니다\n",n);
+//			
+//		}else {
+//			
+//			if(n%5==0)
+//				System.out.printf("%d 는 홀수이면서 5의배수입니다\n",n);
+//		}
+//		
+//		sc.close();
 		
-		if(n%2==0) {
-			
-			if(n%3==0)
-				System.out.printf("%d 는 짝수이면서 3의배수입니다\n",n);
-			
-		}else {
-			
-			if(n%5==0)
-				System.out.printf("%d 는 홀수이면서 5의배수입니다\n",n);
+		
+		//--------------------------
+		//IF - ELSE IF - ELSE
+		//-------------------------
+		
+		//과목 1,2,3,4 중 하나라도 40점 미만이면 불합격
+		//과목평균이 100점만점 기준으로 60점 미만이면 불합격
+		//아니면 합격
+		
+		
+		Scanner sc= new Scanner(System.in);
+		int 과목1 = sc.nextInt();
+		int 과목2 = sc.nextInt();
+		int 과목3 = sc.nextInt();
+		int 과목4 = sc.nextInt();
+		double 평균 = (double)(과목1 + 과목2 + 과목3 + 과목4)/4;
+		
+		if(과목1<40) {
+			System.out.println("불합격");
 		}
-		
-		sc.close();
-		
+		else if(과목2<40)  // rhkahr1>=40 && 과목2<40
+		{
+			System.out.println("불합격");
+		}
+		else if(과목3<40) //과목1>=40 && 과목2>= 40 && 과목 3<40
+		{
+			System.out.println("불합격");
+		}
+		else if(과목4<40)  //과목1>=40 && 과목2>= 40 && 과목 3<40 && 과목4<40
+		{ 
+			System.out.println("불합격");
+		}
+		else if(평균<60) //과목1>=40 && 과목2>= 40 && 과목 3<40 && 과목4>=40 && 평균<60
+		{
+			System.out.println("불합격");
+
+		}
+		else //과목1>=40 && 과목2>= 40 && 과목 3<40 && 과목4>=40 && 평균>=60
+		{
+			System.out.println("합격");
+
+		}
 	}
 
 }

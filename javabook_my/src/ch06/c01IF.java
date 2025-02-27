@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class C01IF {
 
 	public static void main(String[] args) {
-		
-		//-----------------------
-		//단순 IF	
-		//-----------------------
+
+		// -----------------------
+		// 단순 IF
+		// -----------------------
 //		Scanner sc = new Scanner(System.in);
 //		System.out.print("나이 : " );
 //		int age = sc.nextInt();
@@ -24,12 +24,11 @@ public class C01IF {
 //		System.out.println("프로그램을 종료합니다");
 //		
 //		sc.close();
-		
-		
-		//-----------------------
-		//IF-ELSE	
-		//-----------------------
-		
+
+		// -----------------------
+		// IF-ELSE
+		// -----------------------
+
 //		Scanner sc = new Scanner(System.in);
 //		System.out.print("나이 : " );
 //		int age = sc.nextInt();
@@ -42,14 +41,14 @@ public class C01IF {
 //		System.out.println("프로그램을 종료합니다");
 //		
 //		sc.close();
-		
-		//-----------------------
-		//1 문제
-		//-----------------------
+
+		// -----------------------
+		// 1 문제
+		// -----------------------
 		// 정수 한개값을 입력받아 3의 배수이면 해당 수를 출력하세요
-		// 3의 배수이면서 5의 배수라면 출력 - 
-		// 순서도도 그려보세요 - 
-		
+		// 3의 배수이면서 5의 배수라면 출력 -
+		// 순서도도 그려보세요 -
+
 //		Scanner sc = new Scanner(System.in);
 //		System.out.print("정수입력 : " );
 //		int num = sc.nextInt();
@@ -63,13 +62,12 @@ public class C01IF {
 //		}
 //		
 //		sc.close();
-		
-		
-		//-----------------------
-		//2 문제
-		//-----------------------
+
+		// -----------------------
+		// 2 문제
+		// -----------------------
 		// 두개의 정수를 입력받아 큰 수 출력
-		
+
 //		Scanner sc = new Scanner(System.in);
 //		System.out.print("두개 정수 입력 : ");
 //		int n1 = sc.nextInt();
@@ -83,9 +81,9 @@ public class C01IF {
 //
 //		sc.close();
 //		
-		//-----------------------
-		//3 문제(☆)
-		//-----------------------
+		// -----------------------
+		// 3 문제(☆)
+		// -----------------------
 //		// 세 개의 정수를 입력받아 큰 수 출력
 //		Scanner sc = new Scanner(System.in);
 //		System.out.print("세 개 정수 입력 : ");
@@ -104,7 +102,6 @@ public class C01IF {
 //
 //		System.out.println("큰 수 : " + max);
 //		sc.close();
-		
 
 //		// 세 개의 정수를 입력받아 큰 수 출력
 //		Scanner sc = new Scanner(System.in);
@@ -128,8 +125,7 @@ public class C01IF {
 //	
 //
 //		sc.close();
-		
-		
+
 //		//-----------------------
 //		//4 문제
 //		//-----------------------
@@ -146,13 +142,13 @@ public class C01IF {
 //		System.out.println("합 : " + sum + " 평균 : " + avg);
 //		
 //		sc.close();
-		
-		//-----------------------
-		//5 문제
-		//-----------------------
+
+		// -----------------------
+		// 5 문제
+		// -----------------------
 //		입력한 수가 짝수이고, 3의 배수라면 출력 (n%2==0 && n%3==0)
 //		입력한 수가 홀수이고, 5의 배수라면 출력 (n%2==1 && n%5==0)
-		
+
 //		Scanner sc = new Scanner(System.in);
 //		int n = sc.nextInt();
 //
@@ -175,49 +171,88 @@ public class C01IF {
 //		}
 //		
 //		sc.close();
+
+		// --------------------------
+		// IF - ELSE IF - ELSE
+		// -------------------------
+
+		// 과목 1,2,3,4 중 하나라도 40점 미만이면 불합격
+		// 과목평균이 100점만점 기준으로 60점 미만이면 불합격
+		// 아니면 합격
+//
+//		Scanner sc = new Scanner(System.in);
+//		int 과목1 = sc.nextInt();
+//		int 과목2 = sc.nextInt();
+//		int 과목3 = sc.nextInt();
+//		int 과목4 = sc.nextInt();
+//		double 평균 = (double) (과목1 + 과목2 + 과목3 + 과목4) / 4;
+//
+//		if (과목1 < 40) {
+//			System.out.println("불합격");
+//		} else if (과목2 < 40) // rhkahr1>=40 && 과목2<40
+//		{
+//			System.out.println("불합격");
+//		} else if (과목3 < 40) // 과목1>=40 && 과목2>= 40 && 과목 3<40
+//		{
+//			System.out.println("불합격");
+//		} else if (과목4 < 40) // 과목1>=40 && 과목2>= 40 && 과목 3<40 && 과목4<40
+//		{
+//			System.out.println("불합격");
+//		} else if (평균 < 60) // 과목1>=40 && 과목2>= 40 && 과목 3<40 && 과목4>=40 && 평균<60
+//		{
+//			System.out.println("불합격");
+//
+//		} else // 과목1>=40 && 과목2>= 40 && 과목 3<40 && 과목4>=40 && 평균>=60
+//		{
+//			System.out.println("합격");
+
+//		}
 		
 		
-		//--------------------------
-		//IF - ELSE IF - ELSE
-		//-------------------------
 		
-		//과목 1,2,3,4 중 하나라도 40점 미만이면 불합격
-		//과목평균이 100점만점 기준으로 60점 미만이면 불합격
-		//아니면 합격
+		//문제
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("시험점수 입력 : ");
+//		int score = sc.nextInt();
+//		
+//		if(score >= 90 && score <= 100 ) {
+//			System.out.println("A");
+//		}else if(score >= 80 && score <=89) {
+//			System.out.println("B");
+//
+//		}else if(score >= 70 && score <=79) {
+//			System.out.println("C");
+//
+//		}else if(score >= 60 && score <=69) {
+//			System.out.println("D");
+//
+//		}else {
+//			System.out.println("F");
+//
+//		}
 		
 		
-		Scanner sc= new Scanner(System.in);
-		int 과목1 = sc.nextInt();
-		int 과목2 = sc.nextInt();
-		int 과목3 = sc.nextInt();
-		int 과목4 = sc.nextInt();
-		double 평균 = (double)(과목1 + 과목2 + 과목3 + 과목4)/4;
+		//문제
+		Scanner sc = new Scanner(System.in);
+		System.out.println("나이를 입력 : ");
+		int age = sc.nextInt();
 		
-		if(과목1<40) {
-			System.out.println("불합격");
-		}
-		else if(과목2<40)  // rhkahr1>=40 && 과목2<40
-		{
-			System.out.println("불합격");
-		}
-		else if(과목3<40) //과목1>=40 && 과목2>= 40 && 과목 3<40
-		{
-			System.out.println("불합격");
-		}
-		else if(과목4<40)  //과목1>=40 && 과목2>= 40 && 과목 3<40 && 과목4<40
-		{ 
-			System.out.println("불합격");
-		}
-		else if(평균<60) //과목1>=40 && 과목2>= 40 && 과목 3<40 && 과목4>=40 && 평균<60
-		{
-			System.out.println("불합격");
+		if(age<8) {
+			System.out.println("요금은 1000원 입니다.");
+		}else if(age<14) {
+			System.out.println("요금은 2000원 입니다.");
+
+		}else if(age<20) {
+			System.out.println("요금은 2500원 입니다.");
+
+		}else if(age>=20) {
+			System.out.println("요금은 3000원 입니다.");
 
 		}
-		else //과목1>=40 && 과목2>= 40 && 과목 3<40 && 과목4>=40 && 평균>=60
-		{
-			System.out.println("합격");
-
-		}
+		
+		
+		
+		sc.close();
 	}
 
 }

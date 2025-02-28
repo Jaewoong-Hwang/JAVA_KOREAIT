@@ -234,34 +234,90 @@ public class c02While {
 		// ***
 		// *
 
-		int h = 4;
-		int i = 1;
-		int step = 2;
-		int stars = 1;
+//		int h = 4;
+//		int i = 1;
+//		int step = 2;
+//		int stars = 1;
+//
+//		while (stars > 0) {	
+//			int j = 0;   // j의 값을 0으로 계속 초기화
+//			while (j < stars) {
+//				System.out.print("*");
+//				j++;
+//			}
+//			System.out.println();
+//			if(i < h) {
+//				stars+=step;
+//			}else {
+//				stars-=step;
+//			}
+//			i++;
+//		}
 
-		while (stars > 0) {
+		// *******
+		// *****
+		// ***
+		// *
+		// *
+		// ***
+		// *****
+		// *******
+
+		int i = 1;
+		int h = 4;
+		int step = 2;
+		int stars = 7;
+
+		while (i<=8) {
 			int j = 0;
 			while (j < stars) {
 				System.out.print("*");
 				j++;
 			}
 			System.out.println();
-			if(i < h) {
-				stars+=step;
-			}else {
+			
+			if(i<h) {
 				stars-=step;
+			}else if(i==h){
+				stars=stars;
+			}else {
+				stars+=step;
 			}
 			i++;
+
 		}
 
-		// *******
-		// *****
-		// ***
-		// *
-		// *
-		// ***
-		// *****
-		// *******
+			//   *
+			//  ***
+			// *****
+			//*******
+		
+		
+			
+			//*******
+			// *****
+			//  ***
+			//   *
+
+			
+			
+			//   *
+			//  ***
+			// *****		
+			//*******
+			// *****
+			//  ***
+			//   *
+
+			
+			//*******
+			// *****
+			//  ***
+			//   *		
+			//   *
+			//  ***
+			// *****		
+			//*******
 
 	}
 

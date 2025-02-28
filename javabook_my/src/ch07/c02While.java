@@ -317,16 +317,23 @@ public class c02While {
 			//   *
 
 		 
-		 int i =0;
-		 while(i<4) {
-			 int j = 0;
-			 while(j<=i) {
-				 System.out.print(" ");
-				 j++;
-			 }
-			 int k = 7;
-			 while(k)
-		 }
+//		 int i =0;
+//		 int h =4;
+//		 
+//		 while(i<h) {
+//			 int j = 0;
+//			 while(j<i) {
+//				 System.out.print(" ");
+//				 j++;
+//			 }
+//			 int k = 2*(h-i)-1;
+//			 while(k>0) {
+//				 System.out.print("*");
+//				 k--;
+//			 }
+//			 System.out.println();
+//			 i++;
+//		 }
 		 
 			
 			
@@ -337,8 +344,49 @@ public class c02While {
 			// *****
 			//  ***
 			//   *
-
-			
+		 
+//		Scanner sc = new Scanner(System.in);
+//		 
+//		 int h = sc.nextInt(); // 다이아몬드 전체 높이
+//
+//	        if (h % 2 == 0) { // 짝수 입력 방지
+//	            System.out.println("⚠️ 홀수 값을 입력해주세요!");
+//	            return;
+//	        }
+//
+//	        int i = 0;
+//	        int mid = h / 2; // 중앙 위치
+//	        int stars, spaces;
+//
+//	        while (i < h) { // 총 h줄 출력
+//	            if (i <= mid) { // 위쪽 삼각형 (중앙 포함)
+//	                stars = 2 * i + 1;
+//	                spaces = mid - i;
+//	            } else { // 아래쪽 삼각형
+//	                stars = 2 * (h - i - 1) + 1;
+//	                spaces = i - mid;
+//	            }
+//
+//	            // 공백 출력
+//	            int j = 0;
+//	            while (j < spaces) {
+//	                System.out.print(" ");
+//	                j++;
+//	            }
+//
+//	            // 별 출력
+//	            int k = 0;
+//	            while (k < stars) {
+//	                System.out.print("*");
+//	                k++;
+//	            }
+//
+//	            System.out.println(); // 줄 바꿈
+//	            i++;
+//	        }
+		
+		
+		
 			//*******
 			// *****
 			//  ***
@@ -348,6 +396,28 @@ public class c02While {
 			// *****		
 			//*******
 
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int h = sc.nextInt();
+		while(h%2 ==0) {
+			System.out.print("홀수를 입력해주세요");
+			
+		}
+		h = sc.nextInt();
+		
+		int i =0;
+		int mid = h /2;
+		int stars,spaces;
+		
+		while(i<h) {
+			if(i<= mid) {
+				
+			}
+			
+		}
+		
+		
 	}
 
 }

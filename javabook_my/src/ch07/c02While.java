@@ -120,8 +120,8 @@ public class c02While {
 //			System.out.println(); // 줄 바꿈 추가
 //			i++;
 //		}
-		
-		//스케너로 받고 별 찍기
+
+		// 스케너로 받고 별 찍기
 //		Scanner sc = new Scanner(System.in);
 //		int h = sc.nextInt();
 //		int w = sc.nextInt();
@@ -136,9 +136,7 @@ public class c02While {
 //			System.out.println();
 //			i++;
 //		}
-		
-		
-		
+
 		// *
 		// **
 		// ***
@@ -158,11 +156,24 @@ public class c02While {
 //			i++;
 //		}
 
+//		Scanner sc = new Scanner(System.in);
+//		int h = sc.nextInt();
+//		int i = 1;
+//		while(i<=h) {
+//			int j = 1;
+//			while(j<=i) {
+//				System.out.print("*");
+//				j++;
+//			}
+//			System.out.println();
+//			i++;
+//		}
+
 		// ****
 		// ***
 		// **
 		// *
-		
+
 //		int height = 4;
 //
 //		int i = 1;
@@ -176,40 +187,72 @@ public class c02While {
 //			System.out.println();
 //			i++;
 //		}
-		
 
 		// *
 		// ***
 		// *****
 		// *******
-		
-		int height = 4;
 
+//		int height = 4;
+//
+//		int i = 1;
+//		while (i <= height) {
+//			int j = 1;
+//			while (j <= (2*i-1) ) {     //별의 수만큼 높이를 반복
+//				System.out.print("*");
+//				j++;
+//
+//			}
+//			System.out.println();
+//			i++;
+//		}
+
+		// *******
+		// *****
+		// ***
+		// *
+
+//		int height = 4;
+//
+//		int i = 1;
+//		while (i <= height) {
+//			int j = 7;
+//			while (j >= (2*i-1) ) {     //별의 수만큼 높이를 반복
+//				System.out.print("*");
+//				j--;
+//
+//			}
+//			System.out.println();
+//			i++;
+//		}
+
+		// *
+		// ***
+		// *****
+		// *******
+		// *****
+		// ***
+		// *
+
+		int h = 4;
 		int i = 1;
-		while (i <= height) {
-			int j = 1;
-			while (j <= i) {     //별의 수만큼 높이를 반복
+		int step = 2;
+		int stars = 1;
+
+		while (stars > 0) {
+			int j = 0;
+			while (j < stars) {
 				System.out.print("*");
 				j++;
-
 			}
 			System.out.println();
+			if(i < h) {
+				stars+=step;
+			}else {
+				stars-=step;
+			}
 			i++;
 		}
-		
-
-		// *******
-		// *****
-		// ***
-		// *
-
-		// *
-		// ***
-		// *****
-		// *******
-		// *****
-		// ***
-		// *
 
 		// *******
 		// *****

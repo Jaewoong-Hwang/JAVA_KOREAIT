@@ -144,12 +144,51 @@ public class c02While {
 		// ***
 		// ****
 
+//		int height = 4;
+//
+//		int i = 1;
+//		while (i <= height) {
+//			int j = 1;
+//			while (j <= i) {     //높이만큼 반복
+//				System.out.print("*");
+//				j++;
+//
+//			}
+//			System.out.println();
+//			i++;
+//		}
+
+		// ****
+		// ***
+		// **
+		// *
+		
+//		int height = 4;
+//
+//		int i = 1;
+//		while (i <= height) {
+//			int j = 4;
+//			while (j >= i) {     //별의 수보다 i가 커지면 종료
+//				System.out.print("*");
+//				j--;
+//
+//			}
+//			System.out.println();
+//			i++;
+//		}
+		
+
+		// *
+		// ***
+		// *****
+		// *******
+		
 		int height = 4;
 
 		int i = 1;
 		while (i <= height) {
 			int j = 1;
-			while (j <= i) {
+			while (j <= i) {     //별의 수만큼 높이를 반복
 				System.out.print("*");
 				j++;
 
@@ -157,16 +196,7 @@ public class c02While {
 			System.out.println();
 			i++;
 		}
-
-		// ****
-		// ***
-		// **
-		// *
-
-		// *
-		// ***
-		// *****
-		// *******
+		
 
 		// *******
 		// *****

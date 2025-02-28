@@ -377,49 +377,92 @@ public class c02While {
 //			i++;
 //			
 //		}
-//		
 		
 		Scanner sc = new Scanner(System.in);
-		 
-		 int h = sc.nextInt(); // 다이아몬드 전체 높이
-
-	        while (h % 2 == 0) { // 짝수 입력 방지
-	            System.out.println("홀수 값을 입력해주세요!");
-	           
-	            h = sc.nextInt();
-	        }
-	        
-
-	        int i = 0;
-	        int mid = h / 2; // 중앙 위치
-	        int stars, spaces;
-
-	        while (i < h) { // 총 h줄 출력
-	            if (i <= mid) { // 위쪽 삼각형 (중앙 포함)
-	                stars = 2 * i + 1;
-	                spaces = mid - i;
-	            } else { // 아래쪽 삼각형
-	                stars = 2 * (h - i - 1) + 1;
-	                spaces = i - mid;
-	            }
-
-	            // 공백 출력
-	            int j = 0;
-	            while (j < spaces) {
-	                System.out.print(" ");
-	                j++;
-	            }
-
-	            // 별 출력
-	            int k = 0;
-	            while (k < stars) {
-	                System.out.print("*");
-	                k++;
-	            }
-
-	            System.out.println(); // 줄 바꿈
-	            i++;
-	        }
+		
+		int h = sc.nextInt();
+		while(h%2==0) {
+			System.out.print("홀수를 입력해주세요.");
+			h =sc.nextInt();	
+		}
+		
+		int i = 0;
+		while(i<h) {
+			
+			if(i<=h/2) {
+				int j = 0;
+				while(j< (h/2)-i) {
+					System.out.print(" ");
+					j++;
+				}
+				int k =0;
+				while(k<=2*i) {
+					System.out.print("*");
+					k++;
+					
+				}
+				
+			}else {
+				int j=0;
+				while(j<i-3) {
+					System.out.print(" ");
+					j++;
+				}
+				int k =0;
+				while(k<i*2-1) {
+					
+				}
+			}
+			
+		}
+		
+		
+		
+		
+		
+//		
+		
+//		Scanner sc = new Scanner(System.in);
+//		 
+//		 int h = sc.nextInt(); // 다이아몬드 전체 높이
+//
+//	        while (h % 2 == 0) { // 짝수 입력 방지
+//	            System.out.println("홀수 값을 입력해주세요!");
+//	           
+//	            h = sc.nextInt();
+//	        }
+//	        
+//
+//	        int i = 0;
+//	        int mid = h / 2; // 중앙 위치
+//	        int stars, spaces;
+//
+//	        while (i < h) { // 총 h줄 출력
+//	            if (i <= mid) { // 위쪽 삼각형 (중앙 포함)
+//	                stars = 2 * i + 1;
+//	                spaces = mid - i;
+//	            } else { // 아래쪽 삼각형
+//	                stars = 2 * (h - i - 1) + 1;
+//	                spaces = i - mid;
+//	            }
+//
+//	            // 공백 출력
+//	            int j = 0;
+//	            while (j < spaces) {
+//	                System.out.print(" ");
+//	                j++;
+//	            }
+//
+//	            // 별 출력
+//	            int k = 0;
+//	            while (k < stars) {
+//	                System.out.print("*");
+//	                k++;
+//	            }
+//
+//	            System.out.println(); // 줄 바꿈
+//	            i++;
+//	        }
 		
 		
 		

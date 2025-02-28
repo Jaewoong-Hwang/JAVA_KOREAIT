@@ -2,7 +2,7 @@ package ch07;
 
 import java.util.Scanner;
 
-public class C01While {
+public class c01While {
 
 	public static void main(String[] args) {
 		

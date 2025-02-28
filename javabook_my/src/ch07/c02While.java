@@ -48,25 +48,25 @@ public class c02While {
 
 		// 2단 - N단(N<9)
 
-		Scanner sc = new Scanner(System.in);
-		System.out.print("단 수 입력 : ");
-		int n = sc.nextInt();
+//		Scanner sc = new Scanner(System.in);
+//		System.out.print("단 수 입력 : ");
+//		int n = sc.nextInt();
 //
-		 while(n>9 || n<2){
-			 
-
-	}
-
-		int dan = 2;
-		while(dan<n+1) {
-			int i =1;
-			while(i<10) {
-				System.out.printf("%d x %d = %d\n", dan,i,dan*i);
-				i++;
-			}
-			System.out.println();
-			dan++;
-		}
+//		 while(n>9 || n<2){
+//			 
+//
+//	}
+//
+//		int dan = 2;
+//		while(dan<n+1) {
+//			int i =1;
+//			while(i<10) {
+//				System.out.printf("%d x %d = %d\n", dan,i,dan*i);
+//				i++;
+//			}
+//			System.out.println();
+//			dan++;
+//		}
 
 		// N단 - M단(N<M , N<9 , M<9)
 
@@ -107,19 +107,56 @@ public class c02While {
 		// *****
 		// *****
 
-		int i = 1;
-		String star = "*";
-		while (i <= 4) {
-
-			System.out.println(star);
-
-			i++;
-		}
-
+//		int height = 4; // 기본 높이
+//		int width = 5; // 별의 개수
+//
+//		int i = 1;
+//		while (i <= height) { // 행을 반복
+//			int j = 1;
+//			while (j <= width) { // 한 줄에 별을 출력
+//				System.out.print("*");
+//				j++;
+//			}
+//			System.out.println(); // 줄 바꿈 추가
+//			i++;
+//		}
+		
+		//스케너로 받고 별 찍기
+//		Scanner sc = new Scanner(System.in);
+//		int h = sc.nextInt();
+//		int w = sc.nextInt();
+//		
+//		int i =1;
+//		while(i <= h) {
+//			int j=1;
+//			while(j<=w) {
+//				System.out.print('*');
+//				j++;
+//			}
+//			System.out.println();
+//			i++;
+//		}
+		
+		
+		
 		// *
 		// **
 		// ***
 		// ****
+
+		int height = 4;
+
+		int i = 1;
+		while (i <= height) {
+			int j = 1;
+			while (j <= i) {
+				System.out.print("*");
+				j++;
+
+			}
+			System.out.println();
+			i++;
+		}
 
 		// ****
 		// ***

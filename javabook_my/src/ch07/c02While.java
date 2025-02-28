@@ -263,35 +263,52 @@ public class c02While {
 		// *****
 		// *******
 
-		int i = 1;
-		int h = 4;
-		int step = 2;
-		int stars = 7;
-
-		while (i<=8) {
-			int j = 0;
-			while (j < stars) {
-				System.out.print("*");
-				j++;
-			}
-			System.out.println();
-			
-			if(i<h) {
-				stars-=step;
-			}else if(i==h){
-				stars=stars;
-			}else {
-				stars+=step;
-			}
-			i++;
-
-		}
+//		int i = 1;
+//		int h = 4;
+//		int step = 2;
+//		int stars = 7;
+//
+//		while (i<=8) {
+//			int j = 0;
+//			while (j < stars) {
+//				System.out.print("*");
+//				j++;
+//			}
+//			System.out.println();
+//			
+//			if(i<h) {
+//				stars-=step;
+//			}else if(i==h){
+//				stars=stars;
+//			}else {
+//				stars+=step;
+//			}
+//			i++;
+//
+//		}
 
 			//   *
 			//  ***
 			// *****
 			//*******
-		
+//		 int i =0;
+//		 while (i < 4) {
+//	            int j = 0; // 공백을 출력하는 변수
+//	            while (j < 3 - i) { // 공백 개수: (N-1) - i
+//	                System.out.print(" ");
+//	                j++;
+//	            }
+//
+//	            int k = 0; // 별을 출력하는 변수
+//	            while (k < 2 * i + 1) { // 별 개수: (2 * i + 1)
+//	                System.out.print("*");
+//	                k++;
+//	            }
+//
+//	            System.out.println(); // 줄 바꿈
+//	            i++; // 다음 줄로 이동
+//	        }
+	
 		
 			
 			//*******
@@ -299,6 +316,18 @@ public class c02While {
 			//  ***
 			//   *
 
+		 
+		 int i =0;
+		 while(i<4) {
+			 int j = 0;
+			 while(j<=i) {
+				 System.out.print(" ");
+				 j++;
+			 }
+			 int k = 7;
+			 while(k)
+		 }
+		 
 			
 			
 			//   *

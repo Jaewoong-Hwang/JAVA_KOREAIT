@@ -7,15 +7,15 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="/Users/boogiewoong2/webapp/JAVA_KOREAIT"/>
 			<item value="/Users/boogiewoong2/JAVA_KOREAIT/javabook_my"/>
+			<item value="/Users/boogiewoong2/webapp/JAVA_KOREAIT"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
 		</list>
 		<section name="ExternalProjectImportWizard.dialogBounds">
-			<item key="DIALOG_X_ORIGIN" value="441"/>
-			<item key="DIALOG_Y_ORIGIN" value="139"/>
+			<item key="DIALOG_X_ORIGIN" value="1271"/>
+			<item key="DIALOG_Y_ORIGIN" value="384"/>
 			<item key="DIALOG_WIDTH" value="589"/>
 			<item key="DIALOG_HEIGHT" value="703"/>
 			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
@@ -30,8 +30,8 @@
 			<item value="/Users/boogiewoong2/JAVA_KOREAIT/javabook_my"/>
 		</list>
 		<section name="SmartImportWizard.dialogBounds">
-			<item key="DIALOG_X_ORIGIN" value="1427"/>
-			<item key="DIALOG_Y_ORIGIN" value="384"/>
+			<item key="DIALOG_X_ORIGIN" value="1008"/>
+			<item key="DIALOG_Y_ORIGIN" value="495"/>
 			<item key="DIALOG_WIDTH" value="880"/>
 			<item key="DIALOG_HEIGHT" value="627"/>
 			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>

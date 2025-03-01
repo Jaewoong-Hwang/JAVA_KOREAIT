@@ -378,47 +378,113 @@ public class c02While {
 //			
 //		}
 		
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
+//		
+//		int h = sc.nextInt();
+//		while(h%2==0) {
+//			System.out.print("홀수를 입력해주세요.");
+//			h =sc.nextInt();	
+//		}
+//		
+//		int i = 0;
+//		while(i<h) {
+//			
+//			if(i<=h/2) {
+//				int j = 0;
+//				while(j< (h/2)-i) {
+//					System.out.print(" ");
+//					j++;
+//				}
+//				int k =0;
+//				while(k<=2*i) {
+//					System.out.print("*");
+//					k++;
+//					
+//				}
+//				
+//			}else {
+//				int j=0;
+//				while(j<i-3) {
+//					System.out.print(" ");
+//					j++;
+//				}
+//				int k =0;
+//				while(k<i*2-1) {
+//					
+//				}
+//			}
+//			
+//		}
 		
-		int h = sc.nextInt();
-		while(h%2==0) {
-			System.out.print("홀수를 입력해주세요.");
-			h =sc.nextInt();	
-		}
 		
-		int i = 0;
-		while(i<h) {
-			
-			if(i<=h/2) {
-				int j = 0;
-				while(j< (h/2)-i) {
-					System.out.print(" ");
-					j++;
-				}
-				int k =0;
-				while(k<=2*i) {
-					System.out.print("*");
-					k++;
-					
-				}
+		
+		
+		
+		
+		
+		
+		
+//		i(행)		j(공백)		k(별)
+//		0		0-2				0-0
+//		1		0-1				0-2
+//		2		0-0				0-4
+//		3		x				0-6
+//		-----------------------------------------
+//		i<=(h/2)	j=0			k=0
+//					j++			k++
+//					j<(h/2)-i	k<=2*i
+//
+//		4			0-0				0-4
+//		5			0-1				0-2
+//		6			0-2				0-0
+//		-----------------------------------------
+//					j=0				k=0
+//					j++				k++
+//					j<=i-(h/2+1)	k<=((h-1)*2)-2*i
 				
-			}else {
-				int j=0;
-				while(j<i-3) {
-					System.out.print(" ");
-					j++;
-				}
-				int k =0;
-				while(k<i*2-1) {
-					
-				}
-			}
-			
-		}
-		
-		
-		
-		
+//			
+//		Scanner sc = new Scanner(System.in);
+//		int h = sc.nextInt();
+//		
+//		
+//		int i=0;
+//		while(i<h) {
+//			
+//			if(i<=(h/2)) {
+//				//공백(↓)
+//				int j=0;
+//				while(j<(h/2)-i) {
+//					System.out.print(" ");
+//					j++;
+//				}
+//				//별(↑)
+//				int k=0;
+//				while(k<=2*i) {
+//					System.out.print("*");
+//					k++;
+//				}
+//				
+//			}else {
+//				
+//				//공백(↑)
+//				int j=0;
+//				while(j<=i-(h/2+1)) {
+//					System.out.print(" ");
+//					j++;
+//				}	
+//				//별(↓)
+//				
+//				int k=0;
+//				while(k<=((h-1)*2)-2*i) {
+//					System.out.print("*");
+//					k++;
+//				}
+//				
+//			}
+//			
+//			System.out.println();
+//			i++;
+//		}
 		
 //		
 		
@@ -476,27 +542,27 @@ public class c02While {
 			//*******
 
 		
-//		Scanner sc = new Scanner(System.in);
-//		
-//		int h = sc.nextInt();
-//		while(h%2 ==0) {
-//			System.out.print("홀수를 입력해주세요");
-//			
-//		}
-//		h = sc.nextInt();
-//		
-//		int i =0;
-//		int mid = h /2;
-//		int stars,spaces;
-//		
-//		while(i<h) {
-//			if(i<= mid) {
-//				stars = 2 * (h - i - 1) + 1;
-//                spaces = i - mid;
-//                
-//			}
-//			
-//		}
+	Scanner sc = new Scanner (System.in);
+	int h = sc.nextInt();
+	
+	while(h%2==0) {
+		System.out.print("홀수를 입력해주세요.");
+	h = sc.nextInt();
+	}
+	
+	int i = 0;
+	while(i<h) {
+		if(i<=h/2) {
+			int j = 0;
+			while(j<2*i-1) {
+				System.out.print(" ");
+				j++;
+			}
+			int k = 0;
+			while(k<8)
+		}
+	}
+		
 		
 		
 	}

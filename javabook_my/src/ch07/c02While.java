@@ -551,17 +551,41 @@ public class c02While {
 	}
 	
 	int i = 0;
-	while(i<h) {
+	while(i<=h) {
 		if(i<=h/2) {
 			int j = 0;
-			while(j<2*i-1) {
+			while(j<i-(h/2)+3) {
 				System.out.print(" ");
 				j++;
 			}
 			int k = 0;
-			while(k<8)
+			while(k<h-(2*i)) {
+				System.out.print("*");
+				k++;
+			}
+			
+			
+		}else if(i>=h/2){
+			int j= 0;
+//			System.out.print("확");
+			while(j<h-i) {
+				System.out.print(" ");
+				j++;
+			}
+			int k =0;
+			while(k<2*i-h) {
+				System.out.print("*");
+				k++;
+			}
+			
+			
+			
 		}
+		System.out.println();
+		i++;
+		
 	}
+	
 		
 		
 		

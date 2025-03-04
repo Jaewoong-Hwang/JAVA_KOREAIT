@@ -29,4 +29,15 @@ public class c00INFO {
 	//1) 스택 영역				:	{} 내에서 생성되고 소멸되는 영역(int, double...)
 	//2) 클래스영역(==메서드)영역	:	공유메모리 영역(생성자,일반메서드,static 메서드,static 변수)
 	//3) 힙형역				:	객체 저장 영역(new 예약어 사용시 할당)
+	
+	
+	//6 코드 해석
+	//Scanner sc = new Scanner(System.in);
+	
+	//new		: 힙(heap)영역에 객체 저장
+	//Scanner() : 객체에 피룡한 초기값을 부여하기 위한 생성자메서드
+	//Scanner sc : Scanner라는 클래스 자료형으로 정의된 참조변수 sc
+	
+	//힙메모리 영역에 Scanner 에 필요한 초기값이 담긴 객체를 생성하고
+	//현위치(main stack)에 Scanner 자료형으로 만든 sc 참조변수에 생성된 Scanner객체의 "시작 메모리 주소"를 저장
 }

@@ -11,7 +11,7 @@ class MethodTest{
 		return n1 + n2;
 	}
 	public int sum2() {
-		return sc.nextInt() + sc.nextInt();
+		return sc.nextInt() + sc.nextInt();  //return 을 쓰면 값을 가지고 온다, 없으면 그냥 돌아옴.
 	}
 	public void sum3(int n1, int n2) {
 		System.out.println(n1 + n2);

@@ -83,6 +83,10 @@ public class c03Continue_Break {
 		int sum=0;
 		while(i<=10) {
 			
+			if(i%3==0) {
+				i++;		//i값을 증가시켜 주지 않으면 무한루프에 빠지게 된다.
+				continue;
+			}
 			System.out.println("i :" +i);
 			sum+=i;
 			i++;

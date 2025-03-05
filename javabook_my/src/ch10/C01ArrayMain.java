@@ -30,6 +30,15 @@ public class C01ArrayMain {
 		Arrays.stream(arr1).forEach(System.out::println);
 
 		// 배열에 입력된 정수중에 최대값과 최소값을 출력
+//		int max = arr1[0];
+//		int min = arr1[0];
+//		
+//		for(int el : arr1) {
+//			if(max<el)
+//				max=el;
+//			if(min>el)
+//				min=el;
+//		}
 		
 
 		System.out.println("MAX : " + Arrays.stream(arr1).max().getAsInt());

@@ -4,7 +4,7 @@ class Song{
 	 String artist;
 	 int year;
 	 String country;
-	 Song(){
+	 public Song(){
 		 this("title","artist",0,"country");
 	 }
 	public Song(String title, String artist, int year, String county) {

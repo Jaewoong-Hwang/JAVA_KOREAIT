@@ -25,6 +25,13 @@ public class C06MethodOverloadingMain {
 		obj.sum(10,20,30);
 		obj.sum(10.5,20.5,30.5);
 		C06Simple obj2 = new C06Simple();
+		
+		System.out.println("결과: " + obj.sum(10, 20));
+		System.out.println("결과: " + obj.sum(10, 20, 30));
+		System.out.println("결과: " + obj.sum(10.5, 20.5, 30.5));
+
 		}
+	
+	
 
 }

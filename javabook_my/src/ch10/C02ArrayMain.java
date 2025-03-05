@@ -14,12 +14,13 @@ public class C02ArrayMain {
 		Arrays.stream(arr1).forEach(System.out::println);
 		System.out.println("--------------");
 		Arrays.stream(arr2).forEach(System.out::println);
- 		
+		System.out.println("--------------");
 		//깊은복사(값복사)
 		int arr3[] = new int[3]; //공간을 형성
 		for(int i=0; i<arr1.length; i++)
 			arr3[i] = arr1[i];
-		
+		Arrays.stream(arr3).forEach(System.out::println);
+		System.out.println("--------------");
 		//Arrays API
 		int arr4[] = Arrays.copyOf(arr1,arr1.length);
 		System.out.println("arr1 : " +arr1);

@@ -1,5 +1,8 @@
 package Ch09;
 
+
+
+
 public class C04String {
 
 	public static void main(String[] args) {
@@ -11,15 +14,21 @@ public class C04String {
 		String str4 = new String("java");
 		
 		
-		System.out.println(str1);
-		System.out.println(str2);
-		System.out.println(str3);
-		System.out.println(str4);
+		System.out.printf("%X\n",System.identityHashCode(str1));
+		System.out.printf("%X\n",System.identityHashCode(str2));
+		System.out.printf("%X\n",System.identityHashCode(str3));
+		System.out.printf("%X\n",System.identityHashCode(str4));
+		
 		System.out.println("---------------------------");
-		System.out.println("str1==str2 ? " + (str1==str2));   //같은 길이의 문자열, 클래스의 상수풀에 같은 문자열을 공유. 
-		System.out.println("str3==str4 ? " + (str3==str4));	  //new 힙 영역에 
+		System.out.println("str1==str2 ? " + (str1==str2));    
+		System.out.println("str3==str4 ? " + (str3==str4));	  
 		System.out.println("str1==str3 ? " + (str1==str3));
 		System.out.println("str2==str4 ? " + (str2==str4));
+		System.out.println("---------------------------");
+		System.out.println("str1==str2 ? " + (str1.equals(str2)));   
+		System.out.println("str3==str4 ? " + (str3.equals(str4)));	   
+		System.out.println("str1==str3 ? " + (str1.equals(str3)));
+		System.out.println("str2==str4 ? " + (str2.equals(str4)));
 	}
 
 }

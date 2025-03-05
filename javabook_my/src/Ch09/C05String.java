@@ -3,7 +3,7 @@ package Ch09;
 public class C05String {
 
 	public static void main(String[] args) {
-//		String str1 = "Java Powerful";			// class 영역에 저장
+		String str1 = "Java Powerful"; // class 영역에 저장
 //		String str2 = new String("java Programing");		// heap 영역에 저장
 //		String str3 = str1 + str2;			//class 영역에 저장
 //		String str4 = str1.concat(str2);	//concat 함수는 덧붙이기 함수임. 덧붙이기 과정을 통해 class에 새로운 공간을 만듦
@@ -22,25 +22,43 @@ public class C05String {
 //			System.out.printf("위치 : %X\n",System.identityHashCode(str));
 //			i++;
 
-		
 //		}
 		// ----------계속해서 덧붙이게 되면 메모리가 가득 차게됨.----상수풀에 계속 메모리가 참
-		
-		
+
 		//
 		// 문자열 덧붙이기(메모리 누수 방지 클래스 : StringBuffer , StringBuilder))
-		//StringBuilder
-		int i = 0;
-//		String str = "";
-		StringBuilder str = new StringBuilder("");
-		while (i < 10) {
-//			str +=i;
-			str.append(i);
-			System.out.print("str : " + str + " ");
-			System.out.printf("위치 : %X\n", System.identityHashCode(str));
-			i++;
-		}
-		//------------------출려해보면 위치가 계속 같은 곳에 찍히게 된다.따라서 메모리 누수가 방지.
+		// StringBuilder
+//		int i = 0;
+////		String str = "";
+//		StringBuilder str = new StringBuilder("");
+//		while (i < 10) {
+////			str +=i;
+//			str.append(i);
+//			System.out.print("str : " + str + " ");
+//			System.out.printf("위치 : %X\n", System.identityHashCode(str));
+//			i++;
+//		}
+		// ------------------출려해보면 위치가 계속 같은 곳에 찍히게 된다.따라서 메모리 누수가 방지.
+		
+		
+		
+		
+		
+		System.out.println("문자열 길이 : " + str1.length());
+		System.out.println("문자열 길이 : " + str1.charAt(2));
 
+		System.out.println("인덱스 찾기 : " + str1.indexOf('a'));
+		System.out.println("인덱스 찾기 : " + str1.lastIndexOf('a'));
+
+		System.out.println("문자열 포함 여부 : " + str1.contains("va"));
+		System.out.println("문자열 포함 여부 : " + str1.contains("abs"));
+
+		System.out.println("문자열 자르기 : " + (str1.substring(2, 6)));
+
+		String str6 = "등산,탁구,축구,골프,독서,영화감상";
+		String[] result = str6.split(",");
+
+		for (String hobby : result)
+			System.out.println(hobby);
 	}
 }

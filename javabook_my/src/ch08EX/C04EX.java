@@ -1,5 +1,24 @@
 package ch08EX;
-
+class Song{
+	 String title;
+	 String artist;
+	 int year;
+	 String country;
+	 Song(){
+		 this("title","artist",0,"country");
+	 }
+	public Song(String title, String artist, int year, String county) {
+		super();
+		this.title = title;
+		this.artist = artist;
+		this.year = year;
+		this.country = county;
+	}
+	public void show() {
+		System.out.printf("%d년 %s국적의 %s가 부른 %s", this.year, this.country, this.artist, this.title);
+	}
+	 
+}
 /*노래 한 곡을 나타내는 Song 클래스를 작성하라. Song은 다음 필드로 구성된다.
 
 - 노래의 제목을 나타내는 title
@@ -17,26 +36,7 @@ song 객체로 생성하고 show()를 이용하여 노래의 정보를 다음과
 public class C04EX {
 
 	
-	 class Song{
-		 String title;
-		 String artist;
-		 int year;
-		 String county;
-		 Song(){
-			 this("title","artist","year","country");
-		 }
-		public Song(String title, String artist, int year, String county) {
-			super();
-			this.title = title;
-			this.artist = artist;
-			this.year = year;
-			this.county = county;
-		}
-		public void show() {
-			System.out.printf("%d년 %s국적의 %s가 부른 %s", this.year, this.county, this.artist, this.title);
-		}
-		 
-	 }
+	 
 	 public static void main(String[] args) {
 		Song song = new Song("Dancing Queen", "ABBA", 1978, "스웨덴");
 		song.show();

@@ -81,11 +81,11 @@ class Profile {
 	}
 
 	// 3) boolean isContain(String findstr) 함수 완성하기
-	boolean isContain(String findstr) {
+//	boolean isContain(String findstr) {
 		// findstr의 문자열이 각멤버인 name,addr,job,major 중 하나라도 포함되어 있으면 true 리턴
 		// 아니면 false 리턴
 
-	}
+//	}
 
 	// 4)
 	boolean isEquals(String str) {
@@ -99,6 +99,7 @@ class Profile {
 
 			return true;
 		}
+		return false;
 
 	}
 
@@ -107,8 +108,8 @@ class Profile {
 		public static void main(String[] args) {
 			Profile hong = new Profile("홍길동,대구,프로그래머,컴퓨터공학");
 			System.out.println(hong.toString());
-			System.out.println("길동 포함여부 : " + hong.isContain("길동")); // true
-			System.out.println("컴퓨터 포함여부 : " + hong.isContain("컴퓨터")); // true
+//			System.out.println("길동 포함여부 : " + hong.isContain("길동")); // true
+//			System.out.println("컴퓨터 포함여부 : " + hong.isContain("컴퓨터")); // true
 			System.out.println("프로필 일치여부 : " + hong.isEquals("홍길동,대구,프로그래머,컴퓨터공학"));// false
 			System.out.println("프로필 일치여부 : " + hong.isEquals("홍길동,울산,프로그래머,컴퓨터공학"));// false
 

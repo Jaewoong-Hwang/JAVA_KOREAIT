@@ -28,15 +28,15 @@ public class C06Ex {
 //		System.out.println("----------------");
 		
 		int [][] scores = new int[5][3];
-		for (int i = 0; i < scores.length; i++) {
+		for (int i = 0; i < 5; i++) {
             System.out.println((i + 1) + "번 학생의 점수를 입력하세요 (국어, 영어, 수학): ");
-            for (int j = 0; j < scores.length; j++) {
+            for (int j = 0; j < 3; j++) {
                 scores[i][j] = sc.nextInt();
             }
         }
 	
 		int koreasum = 0;
-		for(int korea = 0; korea < scores[5][0];) {
+		for(int korea = 0; korea<scores[5][1];) {
 			koreasum+=korea;
 		}
 		System.out.println("국어총점 : " + koreasum);

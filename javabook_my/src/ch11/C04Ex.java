@@ -5,22 +5,23 @@ class ArrayUtils {
 	public static int[] concat(int[] a, int[] b) {
 		/* 배열 a와 b를 연결한 새로운 배열 리턴 */
 
-		int[] arr1 = new int[a.length + b.length];
-		for (int i = 0; i < a.length; i++) {
-			arr1[i] = a[i];
+		int len = a.length + b.length;
+		int[] newArr = new int[len];
+		int i = 0;
+		for (; i < len; i++) {
+			if (i < a.length)
+				newArr[i] = a[i];
+			else
+				newArr[i] = b[i - a.length];
 		}
-		for (int i = 0; i < b.length; i++) {
-			arr1[i] = b[i];
-		}
-		return arr1;
+
+		return newArr;
 	}
-	public static void print(int []a) {
-		System.out.println("{");
-		for(int i=0; i<a.length; i++) {
-			System.out.println(" ");
-			
-		}
-		System.out.println("}");
+
+	public static void print(int[] a) {
+		for (int el : a)
+			System.out.print(el + " ");
+		System.out.println();
 	}
 
 }

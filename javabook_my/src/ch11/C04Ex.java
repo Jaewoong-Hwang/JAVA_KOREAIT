@@ -8,7 +8,7 @@ class ArrayUtils {
 		int len = a.length + b.length;
 		int[] newArr = new int[len];
 		int i = 0;
-		for (; i < len; i++) {
+		for (i=0; i < len; i++) {
 			if (i < a.length)
 				newArr[i] = a[i];
 			else

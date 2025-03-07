@@ -7,7 +7,7 @@ class Sub extends Super{
 	int n2;
 }
 
-public class C06Up {
+public class C06UpDownCatingMain {
 	public static void main(String[] args) {
 		Super ob1 = new Super();
 		ob1.n1=10;

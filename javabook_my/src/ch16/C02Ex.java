@@ -3,11 +3,21 @@ abstract class 팝콘재료{
 	
 }
 
-class 캬라멜{
+class 캬라멜 extends 팝콘재료{
+
+	@Override
+	public String toString() {
+		return "캬라멜";
+	}
 
 	
 }
-class 버터옥수수{
+class 버터옥수수 extends 팝콘재료{
+
+	@Override
+	public String toString() {
+		return "버터옥수수";
+	}
 
 }
 class PopCorn<T extends 팝콘재료>{

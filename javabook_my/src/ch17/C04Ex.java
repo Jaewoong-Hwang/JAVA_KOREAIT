@@ -21,11 +21,14 @@ public class C04Ex {
 		}
 		for(Integer val : set)
 			System.out.print(val + " ");
-		System.out.println("------------");
+		System.out.println("\n------------");
+		
 		//2) [추가]저장된 set의 오름차순 정렬을 해보세요(스트림함수 사용)
 		List<Integer> li = set.stream().sorted().collect(Collectors.toList());
-		li.forEach(System.out::print);
-		
+		//li.forEach(System.out::print);
+		for(Integer val : li)
+			System.out.print(val + " ");
+		System.out.println("\n------------");
 		
 		
 		//3)

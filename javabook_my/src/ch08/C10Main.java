@@ -35,7 +35,9 @@ class Buyer {
 	public void payment(Seller seller, int money) {
 		//내 보유금엑 에서 차감
 		//seller에 money를 전달하고 리턴되는 사과 개수를 누적
-		
+		this.myMoney=money;
+		int appleCnt=seller.receive(money);
+		this.appleCnt+=appleCnt;
 		
 		
 	}
@@ -61,7 +63,10 @@ class Seller {
 	public int receive (int money) {
 		//구매자로부터 전달받은 money를 내보유금액에 누적
 		// 전달받은 금액 / 사과개수를 리턴
-		return -1;
+		this.myMoney=money;
+		int cnt = money / this.price;
+		this.appleCnt=cnt;
+		return cnt;
 	}
 
 }
@@ -73,8 +78,8 @@ public class C10Main {
 		Buyer 홍길동 = new Buyer(10000,0);
 		Buyer 노홍철 = new Buyer(5000,0);
 		
-		홍길동.payment(seller, 50000);
-		노홍철.payment(seller, 20000);
+		홍길동.payment(seller, 5000);
+		노홍철.payment(seller, 2000);
 		
 		System.out.println(홍길동); System.out.println("------------");
 		System.out.println(노홍철); System.out.println("------------");

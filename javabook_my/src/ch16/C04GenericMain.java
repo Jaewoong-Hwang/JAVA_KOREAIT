@@ -55,7 +55,7 @@ public class C04GenericMain {
 		Panda arr2[] = { new Panda("푸바오"), new Panda("래선팬더"), new Panda("쿵푸팬더") };
 		PrintByGeneric(arr2);
 		Object arr3[] = { new Panda("푸바오"), new Tiger("tiger"), new Panda("팬더") };
-		PrintByGeneric(arr3);
+		PrintByObject(arr3);
 
 	}
 }

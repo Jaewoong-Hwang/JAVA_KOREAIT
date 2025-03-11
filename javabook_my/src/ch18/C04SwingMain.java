@@ -35,7 +35,7 @@ class C04GUI extends JFrame{
 		JTextArea area1 = new JTextArea();
 		//area1.setBounds(10,90,210,350);
 		
-		JScrollPane scroll1 = new JScrollPane();
+		JScrollPane scroll1 = new JScrollPane(area1);
 		scroll1.setBounds(10,90,210,350);
 		
 		//panel(component)

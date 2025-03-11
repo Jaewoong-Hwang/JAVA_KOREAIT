@@ -20,10 +20,7 @@ class Person {
 		return "Person [name=" + name + ", age=" + age + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(age, name);
-	}
+
 	// equals를 재정의해서 name,age가 동일하면 true/ 아니면 false
 	public boolean equals(Object obj) {			//equals 재정의
 		if (obj instanceof Person) {
@@ -35,7 +32,11 @@ class Person {
 
 	}
 
-	
+	//hashCode() 재정의 -> HashSet의 동등객체 판단처리
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, name);
+	}
 
 }
 

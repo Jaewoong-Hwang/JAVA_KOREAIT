@@ -27,7 +27,7 @@ public class Ex02MethodAccess {
 		Car angine = new Car();
 		Vehicle car = angine;
 		car.start();
-		car.turboBoost();
+//		car.turboBoost(); // 오류발생
 		
 		Car downcastedCar = (Car)car;
 		downcastedCar.turboBoost();

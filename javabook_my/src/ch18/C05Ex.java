@@ -23,7 +23,6 @@ class GUI extends JFrame{
 		//Component
 		JTextArea area1 = new JTextArea();
 		
-		
 		JScrollPane scroll1 = new JScrollPane(area1);
 		scroll1.setBounds(10,10,180,200);
 		

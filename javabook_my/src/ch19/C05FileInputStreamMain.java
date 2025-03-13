@@ -15,7 +15,7 @@ public class C05FileInputStreamMain {
 			int data= fin.read();
 			if(data==-1) break;
 			
-			System.out.print((char)data);
+			//System.out.print((char)data);
 		}
 		fin.close();
 		

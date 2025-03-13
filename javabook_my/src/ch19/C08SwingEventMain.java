@@ -7,12 +7,11 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -131,17 +130,11 @@ class C08GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 				} catch (Exception el) {
 					el.printStackTrace();
 				} finally {
-					try {
-						out.close();
-					} catch (IOException el) {
-						el.printStackTrace();
-					}
+					try {out.close();} catch (IOException el) {el.printStackTrace();}
 				}
 			}
 
 			
-			
-
 		} else if (e.getSource() == btn2) {
 			System.out.println("불러오기");
 			//파일탐색기 열기
@@ -154,10 +147,9 @@ class C08GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 				fileChooser.setCurrentDirectory(defaultDirPath);
 			
 			int selectedVal = fileChooser.showSaveDialog(null);
-			System.out.println("selectedVal : " + selectedVal); // 저장안하면 1, 저장 안하면 0
-			
+			System.out.println("selectedVal : " + selectedVal); 
 			if (selectedVal == JFileChooser.APPROVE_OPTION) {
-				File selectedFile - fileChooser.getSelectedFile();
+				File selectedFile = fileChooser.getSelectedFile();
 				System.out.println("selectedFile : " + selectedFile);
 				
 					
@@ -172,7 +164,7 @@ class C08GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 						buffer.append((char)data);
 					}
 					area1.setText("");
-					area1.append(buffer.toString);
+					area1.append(buffer.toString());
 					fin.close();
 				}catch(Exception el) {
 					el.printStackTrace();
@@ -204,8 +196,7 @@ class C08GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 				System.out.println(message);
 				area1.append(message + "\n");
 				txt1.setText("");
-				
-				
+
 			}
 		}
 	}

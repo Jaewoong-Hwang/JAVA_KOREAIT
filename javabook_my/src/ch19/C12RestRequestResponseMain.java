@@ -8,6 +8,7 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class C12RestRequestResponseMain {
 	public static void main(String[] args) throws IOException, InterruptedException {
@@ -27,7 +28,7 @@ public class C12RestRequestResponseMain {
 		// System.out.println(response.body());
 
 		// 가공 처리(Class Type vs JSON Type)
-//		ObjectMapper objectMapper = new ObjectMapper();
+		ObjectMapper objectMapper = new ObjectMapper();
 
 		// JSON TYPE
 //		JsonNode jsonNode = objectMapper.readTree(response.body()); //계층구조를 가지는 구조를 다 파악해서 JsonNode로 바꿔줌
@@ -41,10 +42,14 @@ public class C12RestRequestResponseMain {
 //		}
 
 		// CLASS TYPE
-
+		
+		ResponseObject responseObject = objectMapper.readValue(response.body(),ResponseObject.class);
+		System.out.println("Status : " + responseObject.getStatus());
+		System.out.println("Status : " + responseObject.getTotal());
+		System.out.println("Status : " + responseObject.getTotal());
+		System.out.println(response.getData().get(0));
 	}
-	
-	
+
 	private static class Data {
 		public String cnt;
 		@JsonProperty("OPENDATA_ID")
@@ -83,13 +88,14 @@ public class C12RestRequestResponseMain {
 		public String sBW;
 		@JsonProperty("BUS")
 		public String bUS;
-		
-		Data(){}
+
+		Data() {
+		}
 
 		public Data(String cnt, String oPENDATA_ID, String gNG_CS, String fD_CS, String bZ_NM, String tLNO,
 				String mBZ_HR, String sEAT_CNT, String pKPL, String hP, String pSB_FRN, String bKN_YN, String iNFN_FCL,
 				String bRFT_YN, String dSSRT_YN, String mNU, String sMPL_DESC, String sBW, String bUS) {
-			//모든인자생성자
+			// 모든인자생성자
 			super();
 			this.cnt = cnt;
 			this.oPENDATA_ID = oPENDATA_ID;
@@ -111,10 +117,8 @@ public class C12RestRequestResponseMain {
 			this.sBW = sBW;
 			this.bUS = bUS;
 		}
-		
-		
-		
-		//getter and setter
+
+		// getter and setter
 
 		public String getCnt() {
 			return cnt;
@@ -267,11 +271,17 @@ public class C12RestRequestResponseMain {
 		public void setbUS(String bUS) {
 			this.bUS = bUS;
 		}
+
+		@Override
+		public String toString() {
+			return "Data [cnt=" + cnt + ", oPENDATA_ID=" + oPENDATA_ID + ", gNG_CS=" + gNG_CS + ", fD_CS=" + fD_CS
+					+ ", bZ_NM=" + bZ_NM + ", tLNO=" + tLNO + ", mBZ_HR=" + mBZ_HR + ", sEAT_CNT=" + sEAT_CNT
+					+ ", pKPL=" + pKPL + ", hP=" + hP + ", pSB_FRN=" + pSB_FRN + ", bKN_YN=" + bKN_YN + ", iNFN_FCL="
+					+ iNFN_FCL + ", bRFT_YN=" + bRFT_YN + ", dSSRT_YN=" + dSSRT_YN + ", mNU=" + mNU + ", sMPL_DESC="
+					+ sMPL_DESC + ", sBW=" + sBW + ", bUS=" + bUS + "]";
+		}
 		
-		
-		
-		
-		
+
 	}
 
 	private static class ResponseObject {
@@ -279,7 +289,47 @@ public class C12RestRequestResponseMain {
 		public String total;
 		public ArrayList<Data> data;
 		
-		ResponseObject(){}
+
+		public ResponseObject(String status, String total, ArrayList<Data> data) {
+			super();
+			this.status = status;
+			this.total = total;
+			this.data = data;
+		}
+
+
+		ResponseObject() {
+		}
+
+
+		public String getStatus() {
+			return status;
+		}
+
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+
+		public String getTotal() {
+			return total;
+		}
+
+
+		public void setTotal(String total) {
+			this.total = total;
+		}
+
+
+		public ArrayList<Data> getData() {
+			return data;
+		}
+
+
+		public void setData(ArrayList<Data> data) {
+			this.data = data;
+		}
 	}
 
 }

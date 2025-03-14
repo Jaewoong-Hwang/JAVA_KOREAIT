@@ -20,6 +20,7 @@ public class C10JsoupMain {
 		// URL연결
 		Connection conn = Jsoup.connect("https://www.op.gg/champions");
 
+		//DOM객체 받기
 		Document document = conn.get();
 		System.out.println(document);
 

@@ -47,7 +47,7 @@ public class C12RestRequestResponseMain {
 		System.out.println("Status : " + responseObject.getStatus());
 		System.out.println("Status : " + responseObject.getTotal());
 		System.out.println("Status : " + responseObject.getTotal());
-		System.out.println(response.getData().get(0));
+		System.out.println(responseObject.getData().get(0));
 	}
 
 	private static class Data {

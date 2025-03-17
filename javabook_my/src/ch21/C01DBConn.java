@@ -12,7 +12,7 @@ public class C01DBConn {
 		//DB CONN DATA
 		String id = "root";
 		String pw = "1234";
-		String url = "jdbc:myql://localhost:3306/testdb";
+		String url = "jdbc:mysql://localhost:3306/testdb";
 		
 		//JDBC참조변수
 		Connection conn = null;
@@ -30,11 +30,7 @@ public class C01DBConn {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally{
-			try {
-				conn.close();
-			}catch (SQLException e) {
-				e.printStackTrace();
-			}
+			try {conn.close();}catch (SQLException e) {e.printStackTrace();}
 		}
 	}
 }

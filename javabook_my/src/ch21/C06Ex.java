@@ -1,8 +1,10 @@
 package ch21;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 class ChargeStation{
 	private int no;
@@ -11,9 +13,69 @@ class ChargeStation{
 	private String name;
 	private int zipcode;
 	private String address;
+	
+	//모든 인자 생성자 
+	public ChargeStation(int no, String section, String station, String name, int zipcode, String address) {
+		super();
+		this.no = no;
+		this.section = section;
+		this.station = station;
+		this.name = name;
+		this.zipcode = zipcode;
+		this.address = address;
+	}
+	
+	
 	//Getter and Setter
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public String getSection() {
+		return section;
+	}
+	public void setSection(String section) {
+		this.section = section;
+	}
+	public String getStation() {
+		return station;
+	}
+	public void setStation(String station) {
+		this.station = station;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
 	//toString
-	//모든 인자 생성자 	
+
+	@Override
+	public String toString() {
+		return "ChargeStation [no=" + no + ", section=" + section + ", station=" + station + ", name=" + name
+				+ ", zipcode=" + zipcode + ", address=" + address + "]";
+	}
+	
+	
+	
+	
+		
 }
 public class C06Ex {
 	//DB CONN DATA
@@ -28,13 +90,42 @@ public class C06Ex {
 	
 	public static void connect() throws Exception {
 			//DB 연결코드
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Driver Loading Success...");
+			conn = DriverManager.getConnection(url,id,pw);
+			System.out.println("DB CONNECTED...");
+		
 	}
 	public static void Select() throws Exception {
 			//전체 조회
+		pstmt = conn.prepareStatement()
+				if(rs!=null) {
+					while(rs.next()) {
+						System.out.print(rs.getInt("순번")+" ");
+						System.out.print(rs.getString("행정구역")+"\t");
+						System.out.print(rs.getString("지사")+"\t");
+						System.out.print(rs.getString("시설명")+"\t");
+						System.out.print(rs.getString("우편번호")+"\t");
+						System.out.print(rs.getString("주소")+"\n");
+		
+		
 	}
 	public static void Insert(ChargeStation obj) throws Exception {
 			//ChargeStation 객체를 받아 내용 insert
-
+			pstmt = conn.prepareStatement("insert into charge_station values(?,?,?,?,?,?)");
+			pstmt.setInt(1, obj.getNo());
+			pstmt.setString(2, obj.getSection());
+			pstmt.setString(3, obj.getStation());
+			pstmt.setString(4, obj.getName());
+			pstmt.setInt(5, obj.getZipcode());
+			pstmt.setString(6, obj.getAddress());
+			
+			int result = pstmt.executeUpdate();
+			if(result>0) 
+				System.out.println("[INFO] INSERT 성공");
+				else
+					System.out.println("[ERRPR] INSERT 실패");
+			freeConnection(pstmt);
 	}
 	public static void Update() throws Exception {
 		//수정
@@ -58,7 +149,11 @@ public class C06Ex {
 		try {
 			connect();
 			Insert(new ChargeStation(201,"대구광역시","대구지사","대구가스",10101,"대구"));
-			Select();
+//			Select();
+//			SelectOne(); //단건주회
+			//Updatd();//수정
+			Delete();//단건삭제
+			
 
 		}catch(Exception e) {
 			e.printStackTrace();

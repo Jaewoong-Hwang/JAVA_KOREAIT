@@ -17,6 +17,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -27,6 +31,49 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.BadLocationException;
+
+class Memo {
+	private int id;
+	private String text;
+	private LocalDateTime createdAt;
+
+	@Override
+	public String toString() {
+		return "Memo [id=" + id + ", text=" + text + ", createdAt=" + createdAt + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Memo(int id, String text, LocalDateTime createdAt) {
+		super();
+		this.id = id;
+		this.text = text;
+		this.createdAt = createdAt;
+	}
+
+}
 
 class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListener {
 	JButton btn1;
@@ -213,42 +260,80 @@ class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 				} catch (Exception el) {
 					el.printStackTrace();
 				}
+
 			}
 
 		} else if (e.getSource() == btn3) {
 			System.out.println("INSERT");
 			try {
-				
-			
-			pstmt=conn.prepareStatement("insert into tbl_memo values(null,?,now())");
-			pstmt.setString(1, area1.getText());
-			int result=pstmt.executeUpdate();
-			
-			if(result>0) {
-				System.out.println("[INFO] INSERT 성공");
-				JOptionPane.showMessageDialog(null,"INSERT 성공","INSERT 확인창","ICON VAL");
-				else
+
+				pstmt = conn.prepareStatement("insert into tbl_memo values(null,?,now())");
+				pstmt.setString(1, area1.getText());
+				int result = pstmt.executeUpdate();
+
+				if (result > 0) {
+					System.out.println("[INFO] INSERT 성공");
+					JOptionPane.showMessageDialog(null, "INSERT 성공", "INSERT 확인창", JOptionPane.INFORMATION_MESSAGE);
+
+				} else {
+					System.out.println("[INFO] INSERT 실패");
+					JOptionPane.showMessageDialog(null, "INSERT 실패", "INSERT 확인창", JOptionPane.ERROR_MESSAGE);
+				}
+
+			} catch (SQLException el) {
+				el.printStackTrace();
+			} finally {
+				try {
+					pstmt.close();
+				} catch (Exception el) {
+					el.printStackTrace();
+				}
 			}
-				System.out.println("[INFO] INSERT 실패");
-		}catch(SQLException el) {
-			el.printStackTrace();
-		}finally {
-			try {pstmt.close();}catch(Exception el) {el.printStackTrace();}
-		}
-		}
-		else if (e.getSource() == btn4){
+
+		} else if (e.getSource() == btn4) {
+
+		} else if (e.getSource() == btn5) {
+
+		} else if (e.getSource() == btn6) {
+			try {
+				// SQL 준비
+				pstmt = conn.prepareStatement("select * from tbl_memo");
+				
+				// SQL실행
+				List<Memo> lost = new ArrayList();
+				Memo memo;
+				rs = pstmt.executeQuery();
+				if (rs != null) {
+					while (rs.next()) {
+//						System.out.print(rs.getInt("ID") + " ");
+//						System.out.print(rs.getString("text") + " ");
+						System.out.print(rs.getTime("createdAt") + "\n");
+						System.out.print(rs.getTimestamp("createdAt") + "\n");
+						Timestamp timestamp = rs.getTimestamp("createdAt");
+						timestamp.toLocalDateTime();
+						
+						memo = new Memo();
+						memo.setId(rs.getInt("id"));
+						memo.setText(rs.getString("text"));
+						Timestamp timestamp = rs.getTimestamp("createdAt");
+						memo.setCreatedAt(timestamp.toLocalDateTime());
+						list.add(memo);
+					}
+
+				}
+				list.forEach(System.out::println);
 			
+			}	catch (Exception e3) {
+				e3.printStackTrace();
+
+			} finally {
+				try {rs.close();}catch(Exception e2) {}
+				try {pstmt.close();}catch(Exception e2) {}
+
+			}
 		}
-		else if (e.getSource() == btn5){
-			
-		}
-		else if (e.getSource() == btn6){
-			
-		}
-		
-		
-		else if (e.getSource() == input) 
-		{
+
+		else if (e.getSource() == input) {
 			System.out.println("입력");
 		}
 

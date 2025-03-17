@@ -139,19 +139,19 @@ public class C06Ex {
 		freeConnection(pstmt);
 	}
 
-	public static void Update() throws Exception {
+	public static void Update(ChargeStation obj) throws Exception {
 		// 수정
-		pstmt=conn.prepareStatement("update charge_station set 행정구역=?,"
+		String query = ("update charge_station set 행정구역=?,"
 				+ "지사=?, 시설명=?, 우편번호=?,주소=? where 순번=?");
 		System.out.println(query);
 		pstmt=conn.prepareStatement(query);
 		
 		pstmt.setString(1, obj.getSection());	//행정구역
-		pstmt.setString(2, obj.setStation);	//지사
+		pstmt.setString(2, obj.getStation());	//지사
 		pstmt.setString(3, obj.getName());	//시설명
 		pstmt.setInt(4, obj.getZipcode());	//우편번호
 		pstmt.setString(5, obj.getAddress());	//주소
-		pstmt.setString(6, obj.getNo);	//순번
+		pstmt.setInt(6, obj.getNo());	//순번
 			
 		int result = pstmt.executeUpdate();
 		if (result > 0)
@@ -162,12 +162,7 @@ public class C06Ex {
 		
 		
 		
-		pstmt.setInt(1, obj.getNo());
-		pstmt.setString(2, obj.getSection());
-		pstmt.setString(3, obj.getStation());
-		pstmt.setString(4, obj.getName());
-		pstmt.setInt(5, obj.getZipcode());
-		pstmt.setString(6, obj.getAddress());
+		
 	}
 
 	public static void Delete() throws Exception {

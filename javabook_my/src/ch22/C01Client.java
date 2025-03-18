@@ -9,8 +9,8 @@ import java.net.UnknownHostException;
 public class C01Client {
 	private void mian() throws UnknownHostException, IOException {
 		// TODO Auto-generated method stub
-		Socket client = new Socket("192.168.16.203",7000);
-//		Socket client = new Socket("192.168.16.85",7000);
+		//Socket client = new Socket("192.168.16.203",7000);
+		Socket client = new Socket("192.168.16.85",7002);
 
 		InputStream in = client.getInputStream();		
 		DataInputStream din = new DataInputStream(in);

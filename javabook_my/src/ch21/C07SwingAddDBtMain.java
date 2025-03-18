@@ -33,102 +33,13 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.BadLocationException;
 
-class SelectFrame extends JFrame{
-	
-	C07GUI mainUi;
-	JTable table;
-	JScrollPane scroll;
-	JPanel panel;
-	
-	SelectFrame(C07GUI mainUi){	
-		super("SELECT 결과");
-		this.mainUi = mainUi;
-		setBounds(100,100,500,500);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setVisible(false);
-		
-		//panel
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		
-		
-		
-		
-		//frame(panel)
-		add(panel);
-		
-		//event
-	}
-	void select(Connection conn,PreparedStatement pstmt , ResultSet rs) {
-		
-		if(scroll!=null) {
-			panel.remove(table);
-			panel.remove(scroll);
-		}
-		//component
-				String[] columns = {"ID","TEXT", "CREATED_AT"};
-				List<String[]>data = new ArrayList();	//1차원 배열을 2차원으로 
-				
-				
-		
-		try {
-			//SQL 준비
-			pstmt = conn.prepareStatement("select * from tbl_memo");
-			
-			//SQL 실행
-			List<Memo> list = new ArrayList();
-			Memo memo;
-			rs =  pstmt.executeQuery();
-			if(rs!=null) {
-				while(rs.next()) {
-					memo = new Memo();
-					memo.setId(rs.getInt("id"));
-					memo.setText(rs.getString("text"));
-					Timestamp timestamp = rs.getTimestamp("createdAt");
-					memo.setCreatedAt(timestamp.toLocalDateTime());
-					list.add(memo);
-					
-					data.add(new String[] {rs.getString("id"), rs.getString("text"), rs.getString("createdAt")});
-					}
-				}
-			
-			list.forEach(System.out::println);
-			
-			String[][] arr = new String[data.size()][];
-			//for 값복사
-			for(int i=0; i<data.size();i++) {
-				arr[i] = data.get(i);
-			}
-		
-			
-			
-	 		table = new JTable(arr,columns);
-	 		//table.setBounds(10,10,400,400);
-	 		
-	 		scroll= new JScrollPane(table);
-	 		scroll.setBounds(10,10,400,400);
-	 		
-			//panel(component)
-			//panel.add(table);
-			panel.add(scroll);
-			
-		}catch(Exception e3) {
-			e3.printStackTrace();
-		}finally {
-			try {rs.close();}catch(Exception e2) {}
-			try {pstmt.close();}catch(Exception e2) {}
-		}
-	}
-}
-
-class Memo{
+class Memo {
 	private int id;
 	private String text;
-	public Memo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	private LocalDateTime createdAt;
+
+	Memo() {
+	}
 
 	public Memo(int id, String text, LocalDateTime createdAt) {
 		super();
@@ -136,48 +47,205 @@ class Memo{
 		this.text = text;
 		this.createdAt = createdAt;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getText() {
 		return text;
 	}
+
 	public void setText(String text) {
 		this.text = text;
 	}
+
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
+
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
+
 	@Override
 	public String toString() {
 		return "Memo [id=" + id + ", text=" + text + ", createdAt=" + createdAt + "]";
 	}
-	//toString
-	//getter and setter
-	//모든 인자생성자
-	//디폴트 생성자
+	// toString
+	// getter and setter
+	// 모든 인자생성자
+	// 디폴트 생성자
+}
+
+class SelectFrame extends JFrame implements MouseListener, ActionListener {
+
+	C07GUI mainUi;
+	JTable table;
+	JScrollPane scroll;
+	JPanel panel;
+	JButton btn1;
+	String selectedText;
+
+	SelectFrame(C07GUI mainUi) {
+		super("SELECT 결과");
+		this.mainUi = mainUi;
+
+		setBounds(100, 100, 500, 500);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		// panel
+		panel = new JPanel();
+		panel.setLayout(null);
+		
+		
+		//
+		btn1 = new JButton("선택");
+		btn1.setBounds(410,10,70,30);
+		btn1.addActionListener(this);
+		
+		panel.add(btn1);
+		
+		// frame(panel)
+		add(panel);
+
+		// event
+
+		setVisible(false);
+	}
+
+	void select(Connection conn, PreparedStatement pstmt, ResultSet rs) {
+
+		if (scroll != null) {
+			panel.remove(table);
+			panel.remove(scroll);
+		}
+
+		// component
+		String[] columns = { "ID", "TEXT", "CREATED_AT" };
+		List<String[]> data = new ArrayList();
+
+		try {
+
+			// SQL 준비
+			pstmt = conn.prepareStatement("select * from tbl_memo");
+
+			// SQL 실행
+			List<Memo> list = new ArrayList();
+			Memo memo;
+			rs = pstmt.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					memo = new Memo();
+					memo.setId(rs.getInt("id"));
+					memo.setText(rs.getString("text"));
+					Timestamp timestamp = rs.getTimestamp("createdAt");
+					memo.setCreatedAt(timestamp.toLocalDateTime());
+					list.add(memo);
+
+					data.add(new String[] { rs.getString("id"), rs.getString("text"), rs.getString("createdAt") });
+
+				}
+			}
+			list.forEach(System.out::println);
+
+			// ------------------------------------------
+
+			String[][] arr = new String[data.size()][];
+			// for 값복사
+			for (int i = 0; i < data.size(); i++) {
+				arr[i] = data.get(i);
+				System.out.println(data.get(i));
+			}
+			table = new JTable(arr, columns);
+			table.addMouseListener(this);
+//			table.setBounds(10,10,400,400);
+
+			scroll = new JScrollPane(table);
+			scroll.setBounds(10, 10, 400, 400);
+			// panel(component)
+//			panel.add(table);
+			panel.add(scroll);
+
+		} catch (Exception e3) {
+			e3.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+			} catch (Exception e2) {
+			}
+			try {
+				pstmt.close();
+			} catch (Exception e2) {
+			}
+		}
+
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		int selectedRow = table.getSelectedRow();
+
+		selectedText = table.getValueAt(selectedRow, 1).toString();
+		System.out.println("CLICKED.." + selectedRow);
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==btn1) {
+			//mainUT에 selectedText를 전달
+			mainUi.area1.setText(selectedText);
+			//현재프레임은 종료
+			
+		}
+		
+	}
+
 }
 
 class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListener {
 	JButton btn1;
 	JButton btn2;
-	JButton btn3;	//INSERT
-	JButton btn4;	//UPDATE
-	JButton btn5;	//DELETE
-	JButton btn6;	//SELECTONE
-	
+	JButton btn3; // INSERT
+	JButton btn4; // UPDATE
+	JButton btn5; // DELETE
+	JButton btn6; // SELECTONE
+
 	JButton input;
 	JTextField txt1;
 	JTextArea area1;
-	
+
 	Writer out;
-	
+
 	// DB CONN DATA
 	static String id = "root";
 	static String pw = "1234";
@@ -187,13 +255,10 @@ class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 	static Connection conn = null;
 	static PreparedStatement pstmt = null;
 	static ResultSet rs = null;
-	
-	//SELECT FRAME
+
+	// SELECT FRAME
 	SelectFrame selectFrame;
-	
-	
-	
-	
+
 	C07GUI(String title) throws ClassNotFoundException, SQLException {
 		// frame
 		super(title);
@@ -222,13 +287,13 @@ class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 
 		btn4 = new JButton("UPDATE");
 		btn4.setBounds(270, 130, 110, 30);
-		
+
 		btn5 = new JButton("DELETE");
 		btn5.setBounds(270, 170, 110, 30);
-		
+
 		btn6 = new JButton("SELECT");
 		btn6.setBounds(270, 210, 110, 30);
-		
+
 		input = new JButton("입력"); // 입력 : input
 		input.setBounds(270, 300, 110, 30);
 
@@ -263,16 +328,16 @@ class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 
 		// frame
 		setVisible(true);
-		
-		//DB CONN
+
+		// DB CONN
 		// DB 연결코드
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		System.out.println("Driver Loading Success...");
 		conn = DriverManager.getConnection(url, id, pw);
 		System.out.println("DB CONNECTED...");
-		
-		//SELECT FRAME\
-		selectFrame = new SelectFrame(this); //여기서의 this는 c07gui임
+
+		// SELECT FRAME
+		selectFrame = new SelectFrame(this);
 	}
 
 	@Override
@@ -282,131 +347,125 @@ class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 		if (e.getSource() == btn1) {
 			System.out.println("저장하기");
 			String contents = area1.getText();
-			
-			//파일탐색기 열기
+
+			// 파일탐색기 열기
 			JFileChooser fileChooser = new JFileChooser();
 			fileChooser.setDialogTitle("파일 저장 위치를 선택하세요");
 			fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-			
+
 			File defaultDirPath = new File("C:\\IOTEST");
-			if(defaultDirPath.exists())
+			if (defaultDirPath.exists())
 				fileChooser.setCurrentDirectory(defaultDirPath);
-			
+
 			int selectedVal = fileChooser.showSaveDialog(null);
 			System.out.println("selectedVal : " + selectedVal);
-			
-			if(selectedVal == JFileChooser.APPROVE_OPTION) {
+
+			if (selectedVal == JFileChooser.APPROVE_OPTION) {
 				File selectedFile = fileChooser.getSelectedFile();
 				System.out.println("selectedFile : " + selectedFile);
-				
-				//파일확장자 추가
+
+				// 파일확장자 추가
 				String filePath = selectedFile.toString();
-				if(!selectedFile.toString().endsWith(".txt")) {
-					filePath = selectedFile.toString()+".txt";
+				if (!selectedFile.toString().endsWith(".txt")) {
+					filePath = selectedFile.toString() + ".txt";
 				}
 				System.out.println("filePath : " + filePath);
-				
+
 //				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
 //				String filename = LocalDateTime.now().format(formatter);
-				
+
 				try {
 					out = new FileWriter(filePath);
 					out.write(contents);
 					out.flush();
-				}catch(Exception e1) {
+				} catch (Exception e1) {
 					e1.printStackTrace();
-				}finally {
-					try {out.close();} catch (IOException e1) {e1.printStackTrace();}
+				} finally {
+					try {
+						out.close();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 				}
 			}
-					
-			
+
 		} else if (e.getSource() == btn2) {
-			
+
 			System.out.println("불러오기");
-			//파일탐색기 열기
+			// 파일탐색기 열기
 			JFileChooser fileChooser = new JFileChooser();
 			fileChooser.setDialogTitle("파일을 선택하세요");
 			fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-		 
+
 			File defaultDirPath = new File("C:\\IOTEST");
-			if(defaultDirPath.exists())
+			if (defaultDirPath.exists())
 				fileChooser.setCurrentDirectory(defaultDirPath);
-			
-	
+
 			int selectedVal = fileChooser.showSaveDialog(null);
 			System.out.println("selectedVal : " + selectedVal);
-			if(selectedVal == JFileChooser.APPROVE_OPTION) {
+			if (selectedVal == JFileChooser.APPROVE_OPTION) {
 				File selectedFile = fileChooser.getSelectedFile();
 				System.out.println("selectedFile : " + selectedFile);
-				
+
 				try {
-					
-					Reader fin =new FileReader(selectedFile.toString()); 
+
+					Reader fin = new FileReader(selectedFile.toString());
 					StringBuffer buffer = new StringBuffer();
-					while(true) {
+					while (true) {
 						int data = fin.read();
-						if(data==-1) 
+						if (data == -1)
 							break;
-						buffer.append((char)data);
+						buffer.append((char) data);
 					}
 					area1.setText("");
 					area1.append(buffer.toString());
 					fin.close();
-				}catch(Exception e1) {
+				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-				
-				
-			}
-	
-		} 
-		else if (e.getSource() == btn3) 
-		{
-			System.out.println("INSERT");
-			
-			try {
-				
-				pstmt = conn.prepareStatement("insert into tbl_memo values(null,?,now())");
-				pstmt.setString(1,area1.getText());
-				int result=pstmt.executeUpdate();
-				
-				if(result>0) {
-					System.out.println("[INFO] INSERT 성공");
-					JOptionPane.showMessageDialog(null, "INSERT 성공","INSERT 확인창",JOptionPane.INFORMATION_MESSAGE);	
-				}
-				else {
-					System.out.println("[INFO] INSERT 실패");
-					JOptionPane.showMessageDialog(null, "INSERT 실패","INSERT 확인창",JOptionPane.ERROR_MESSAGE);	
 
+			}
+
+		} else if (e.getSource() == btn3) {
+			System.out.println("INSERT");
+
+			try {
+
+				pstmt = conn.prepareStatement("insert into tbl_memo values(null,?,now())");
+				pstmt.setString(1, area1.getText());
+				int result = pstmt.executeUpdate();
+
+				if (result > 0) {
+					System.out.println("[INFO] INSERT 성공");
+					JOptionPane.showMessageDialog(null, "INSERT 성공", "INSERT 확인창", JOptionPane.INFORMATION_MESSAGE);
+				} else {
+					System.out.println("[INFO] INSERT 실패");
+					JOptionPane.showMessageDialog(null, "INSERT 실패", "INSERT 확인창", JOptionPane.ERROR_MESSAGE);
 				}
-				
+
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}finally {
-				try {pstmt.close();}catch(Exception e1) {e1.printStackTrace();}
+			} finally {
+				try {
+					pstmt.close();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
-			
-			
-		} 
-		else if (e.getSource() == btn4) {
-			
-		}
-		else if (e.getSource() == btn5) {
-			
-		}
-		else if (e.getSource() == btn6) {
+
+		} else if (e.getSource() == btn4) {
+
+		} else if (e.getSource() == btn5) {
+
+		} else if (e.getSource() == btn6) {
 			selectFrame.setVisible(true);
-			//전체 조회 가져와서 CONSOLE에 출력
+			// 전체 조회 가져와서 CONSOLE에 출력
 			selectFrame.select(conn, pstmt, rs);
-			
-			
-			
+
 		}
-		
-		else if (e.getSource() == input) 
-		{
+
+		else if (e.getSource() == input) {
 			System.out.println("입력");
 		}
 
@@ -451,15 +510,14 @@ class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 			int startOffset = area1.getLineStartOffset(row);
 			int endOffset = area1.getLineEndOffset(row);
 //			System.out.printf("%d %d\n", startOffset,endOffset);
-			String str = area1.getText(startOffset,endOffset-startOffset );
+			String str = area1.getText(startOffset, endOffset - startOffset);
 			System.out.println(str);
-			
-			
+
 		} catch (BadLocationException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
@@ -491,7 +549,7 @@ class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 public class C07SwingAddDBtMain {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		
+
 		new C07GUI("Chatting UI");
 
 	}

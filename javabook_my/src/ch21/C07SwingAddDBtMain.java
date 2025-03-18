@@ -61,6 +61,10 @@ class SelectFrame extends JFrame{
 	}
 	void select(Connection conn,PreparedStatement pstmt , ResultSet rs) {
 		
+		if(scroll!=null) {
+			panel.remove(table);
+			panel.remove(scroll);
+		}
 		//component
 				String[] columns = {"ID","TEXT", "CREATED_AT"};
 				List<String[]>data = new ArrayList();	//1차원 배열을 2차원으로 

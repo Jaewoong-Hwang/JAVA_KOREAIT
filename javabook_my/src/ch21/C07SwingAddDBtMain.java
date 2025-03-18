@@ -28,10 +28,94 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.BadLocationException;
 
+class SelectFrame extends JFrame{
+	
+	C07GUI mainUi;
+	JTable table;
+	JScrollPane scroll;
+	JPanel panel;
+	
+	SelectFrame(C07GUI mainUi){	
+		super("SELECT 결과");
+		this.mainUi = mainUi;
+		setBounds(100,100,500,500);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setVisible(false);
+		
+		//panel
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		
+		
+		
+		
+		//frame(panel)
+		add(panel);
+		
+		//event
+	}
+	void select(Connection conn,PreparedStatement pstmt , ResultSet rs) {
+		
+		//component
+				String[] columns = {"ID","TEXT", "CREATED_AT"};
+				List<String[]>data = new ArrayList();	//1차원 배열을 2차원으로 
+				
+				
+		
+		try {
+			//SQL 준비
+			pstmt = conn.prepareStatement("select * from tbl_memo");
+			
+			//SQL 실행
+			List<Memo> list = new ArrayList();
+			Memo memo;
+			rs =  pstmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					memo = new Memo();
+					memo.setId(rs.getInt("id"));
+					memo.setText(rs.getString("text"));
+					Timestamp timestamp = rs.getTimestamp("createdAt");
+					memo.setCreatedAt(timestamp.toLocalDateTime());
+					list.add(memo);
+					
+					data.add(new String[] {rs.getString("id"), rs.getString("text"), rs.getString("createdAt")});
+					}
+				}
+			
+			list.forEach(System.out::println);
+			
+			String[][] arr = new String[data.size()][];
+			//for 값복사
+			for(int i=0; i<data.size();i++) {
+				arr[i] = data.get(i);
+			}
+		
+			
+			
+	 		table = new JTable(arr,columns);
+	 		//table.setBounds(10,10,400,400);
+	 		
+	 		scroll= new JScrollPane(table);
+	 		scroll.setBounds(10,10,400,400);
+	 		
+			//panel(component)
+			//panel.add(table);
+			panel.add(scroll);
+			
+		}catch(Exception e3) {
+			e3.printStackTrace();
+		}finally {
+			try {rs.close();}catch(Exception e2) {}
+			try {pstmt.close();}catch(Exception e2) {}
+		}
+	}
+}
 
 class Memo{
 	private int id;
@@ -99,6 +183,11 @@ class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 	static Connection conn = null;
 	static PreparedStatement pstmt = null;
 	static ResultSet rs = null;
+	
+	//SELECT FRAME
+	SelectFrame selectFrame;
+	
+	
 	
 	
 	C07GUI(String title) throws ClassNotFoundException, SQLException {
@@ -177,6 +266,9 @@ class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 		System.out.println("Driver Loading Success...");
 		conn = DriverManager.getConnection(url, id, pw);
 		System.out.println("DB CONNECTED...");
+		
+		//SELECT FRAME\
+		selectFrame = new SelectFrame(this); //여기서의 this는 c07gui임
 	}
 
 	@Override
@@ -301,34 +393,11 @@ class C07GUI extends JFrame implements ActionListener, KeyListener, MouseListene
 			
 		}
 		else if (e.getSource() == btn6) {
+			selectFrame.setVisible(true);
 			//전체 조회 가져와서 CONSOLE에 출력
+			selectFrame.select(conn, pstmt, rs);
 			
-			try {
-				//SQL 준비
-				pstmt = conn.prepareStatement("select * from tbl_memo");
-				
-				//SQL 실행
-				List<Memo> list = new ArrayList();
-				Memo memo;
-				rs =  pstmt.executeQuery();
-				if(rs!=null) {
-					while(rs.next()) {
-						memo = new Memo();
-						memo.setId(rs.getInt("id"));
-						memo.setText(rs.getString("text"));
-						Timestamp timestamp = rs.getTimestamp("createdAt");
-						memo.setCreatedAt(timestamp.toLocalDateTime());
-						list.add(memo);
-					}
-				}
-				list.forEach(System.out::println);
-				
-			}catch(Exception e3) {
-				e3.printStackTrace();
-			}finally {
-				try {rs.close();}catch(Exception e2) {}
-				try {pstmt.close();}catch(Exception e2) {}
-			}
+			
 			
 		}
 		

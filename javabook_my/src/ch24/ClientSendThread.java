@@ -20,7 +20,7 @@ public class ClientSendThread implements Runnable {
 			while (true) {
 				// SERVER->CLIENT (송신)
 				System.out.print("[CLIENT(q:종료)] :");
-				send = sc.nextLine()+"\n";
+				send = sc.nextLine();
 				if (send.equals("q")) {
 					break;
 				}

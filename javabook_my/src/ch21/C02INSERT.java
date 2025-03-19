@@ -32,12 +32,12 @@ public class C02Insert {
 			String name =args[0];
 			int age = Integer.parseInt(args[1]);
 			String addr = args[2];
-			//pstmt=conn.prepareStatement("insert into tbl_std values(?,?,?)");
-//			pstmt.setString(1, name);
-//			pstmt.setInt(2,age);
-//			pstmt.setString(3, addr);
+			pstmt=conn.prepareStatement("insert into tbl_std values(?,?,?)");
+			pstmt.setString(1, name);
+			pstmt.setInt(2,age);
+			pstmt.setString(3, addr);
 			
-			pstmt=conn.prepareStatement("insert into tbl_std values('"+name+"',"+age+",'"+addr+"')");
+			//pstmt=conn.prepareStatement("insert into tbl_std values('"+name+"',"+age+",'"+addr+"')");
 			
 			
 			// SQL 실행

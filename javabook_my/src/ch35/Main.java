@@ -1,39 +1,77 @@
-package ch35;
+package Ch35;
+
+import Ch35.gun.Pistol;
+import Ch35.gun.Rifle;
+import Ch35.unit.Marine;
+import Ch35.unit.Medic;
 
 public class Main {
-
+	
 	public static void main(String[] args) {
-
+		
 		Marine marine1 = new Marine();
 		marine1.setGun(new Pistol());
-
+		marine1.myGun.reload(100);
+		Medic medic1 = new Medic();
+		medic1.type="medic1";
+		marine1.setType("marine1");
 		Marine marine2 = new Marine();
 		marine2.setGun(new Rifle());
-
-		// M1->M2
+		marine2.myGun.reload(100);
+		marine2.setType("marine2");
+		
+		
+		//medic -> m1
 		new Thread() {
-
 			@Override
 			public void run() {
-				while (true) {
-					super.run();
-					marine1.attack(marine2);
+				while(true) {
+					medic1.Healing(marine1);
 					try {
-					Thread.sleep(1000);
-					}catch
+						Thread.sleep(1500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 				}
 			}
-
-		};
-
-		// M2 -> M1
+		}.start();
+		
+		
+		
+		//m1 -> m2
 		new Thread() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
-				super.run();
+				
+				while(true) {
+					marine1.attact(marine2);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+			}		
+		}.start();
+		//m2 -> m1
+		new Thread() {
+			@Override
+			public void run() {
+				while(true) {
+					marine2.attact(marine1);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 			}
-		};
+		}.start();;
+		
 	}
-
 }

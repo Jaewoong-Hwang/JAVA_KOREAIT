@@ -1,0 +1,14 @@
+package ch35;
+
+public abstract class Unit {
+	int hp;
+	int amor;
+	int base_damage;
+	String type;
+	
+	abstract void move();
+	abstract void UnderAttack(int damage);
+	
+	
+	
+}

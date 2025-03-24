@@ -4,13 +4,13 @@ public class Medic extends Unit
 {
 
 	@Override
-	void move() {
+	public void move() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	void UnderAttack(int damage) {
+	public void UnderAttack(int damage) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -8,21 +8,24 @@ import Ch35.unit.Medic;
 
 public class Main2 {
 
-	static Barrack barrack = null;
+	static Barrack barrack = new Barrack();
 
 	public static void main(String[] args) {
 		
 		//건물 생성
+
 		new Thread() {
+
+			@Override
+			public void run() {
+				barrack.buildStructure();
+			}
 			
-			
-		}
-		
-	}.start();
+		}.start();
 
 	Scanner sc = new Scanner(System.in);
-	int num = 0;while(true)
-	{
+	int num = 0;
+	while(true){
 		System.out.println("1 마린 생성");
 		System.out.println("1 메딕 생성");
 		System.out.println("1 종료 ");
@@ -31,19 +34,19 @@ public class Main2 {
 		switch (num) {
 		case 1:
 			Marine marine = barrack.getMarine();
-			System.out.println("marine : "+ marine);
+			System.out.println("marine : " + marine);
 			break;
 		case 2:
 			Medic medic = barrack.getMedic();
-			System.out.println("medic : "+ medic);
+			System.out.println("medic : " + medic);
 			break;
 
 		case 3:
 			break;
 
 		default:
-			
+
 		}
 	}
 
-}
+}}

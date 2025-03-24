@@ -48,6 +48,7 @@ public class Barrack extends Building {
 	}
 
 	@Override
+	public
 	void buildStructure() {
 
 		System.out.println("건물짓기 시작");

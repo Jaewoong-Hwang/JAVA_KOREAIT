@@ -11,8 +11,8 @@ import Ch36.Domain.Dto.UserDto;
 
 public class UserDaoImpl extends CommonDao implements UserDao{
 
-	private static UserDao instance ;
-	public static UserDao getInstance() throws Exception {
+	private static UserDaoImpl instance ;
+	public static UserDaoImpl getInstance() throws Exception {
 		if(instance==null)
 			instance=new UserDaoImpl();
 		return instance;

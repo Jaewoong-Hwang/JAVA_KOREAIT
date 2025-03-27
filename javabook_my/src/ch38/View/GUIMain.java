@@ -1,4 +1,4 @@
-package ch38.View;
+package Ch38.View;
 
 public class GUIMain {
 

@@ -1,7 +1,6 @@
 package Ch38.Domain.Dao;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +11,7 @@ import Ch38.Domain.Dto.UserDto;
 
 
 
-public class UserDaoImpl {
+public class UserDaoImpl{
 	//DB Attr
 	private Connection conn;
 	private PreparedStatement pstmt;
@@ -24,7 +23,7 @@ public class UserDaoImpl {
 	//싱글톤 패턴처리
 	private static UserDaoImpl instance;
 	private UserDaoImpl() throws SQLException, ClassNotFoundException {
-		
+		System.out.println("[DAO] UserDaoImpl init...");
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		conn = DriverManager.getConnection(url,id,pw);
 		System.out.println("UserDaoImpl DB Connection Success");
@@ -37,15 +36,15 @@ public class UserDaoImpl {
 	}
 	
 	//CRUD 
+ 
 	public int insert(UserDto userDto) throws SQLException {
 		try {
-			pstmt=conn.prepareStatement("insert into tbl_user values(?,?,?,?)");
+			pstmt = conn.prepareStatement("insert into tbl_user values(?,?,?,?)");
 			pstmt.setString(1, userDto.getUserid());
 			pstmt.setString(2, userDto.getUsername());
 			pstmt.setString(3, userDto.getPassword());
 			pstmt.setString(4, "ROLE_USER");
 			return pstmt.executeUpdate();
-			
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -54,15 +53,27 @@ public class UserDaoImpl {
 			try {pstmt.close();}catch(Exception e2) {}
 		}
 	}
-	public int update(UserDto userDto) {
-		return -1;
-	}
-	public int delete(UserDto userDto) throws SQLException {
+	
+ 
+	public int update(UserDto userDto) throws SQLException {
 		try {
-			pstmt=conn.prepareStatement("");
+			pstmt = conn.prepareStatement("");
 			
 			return pstmt.executeUpdate();
 			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			throw new SQLException("USERDAO's UPDATE SQL EXCEPTION!!");
+		}finally {
+			try {pstmt.close();}catch(Exception e2) {}
+		}
+	}
+ 
+	public int delete(UserDto userDto) throws SQLException {
+		try {
+			pstmt = conn.prepareStatement("");
+			
+			return pstmt.executeUpdate();
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -72,14 +83,17 @@ public class UserDaoImpl {
 		}
 	}
 	//단건조회
+ 
 	public UserDto select(UserDto userDto) {	
 		return null;
 	}
 	//다건조회
+ 
 	public List<UserDto> selectAll() {	
 		return null;
 	}	
 	
 }
+
 
 

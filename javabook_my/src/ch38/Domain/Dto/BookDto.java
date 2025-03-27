@@ -5,7 +5,6 @@ public class BookDto {
 	private String bookName;
 	private String publisher;
 	private String isbn;
-	
 	public BookDto() {}
 	public BookDto(String bookCode, String bookName, String publisher, String isbn) {
 		super();
@@ -43,6 +42,17 @@ public class BookDto {
 		return "BookDto [bookCode=" + bookCode + ", bookName=" + bookName + ", publisher=" + publisher + ", isbn="
 				+ isbn + "]";
 	}
+	
+	//생성자
+	
+	
+	//getter and setter
+	//toString
+	
+	//1 BookDaoImpl 생성
+	//2 BookDaoImpl insert 작업 TEST
+	//3 table명 : tbl_book
+	
 	
 	
 }

@@ -8,26 +8,25 @@ import Ch38.Domain.Dto.UserDto;
 public class UserServiceImpl {
 	
 	//
-	private UserDaoImpl userDao;
+	private UserDaoImpl userDao ;
 	
-	//싱클톤 패턴
+	//싱글톤 패턴
 	private static UserServiceImpl instance;
 	private UserServiceImpl() throws ClassNotFoundException, SQLException {
-		
 		userDao = UserDaoImpl.getInstance();
+		System.out.println("[SERVICE] UserServiceImpl init...");
 	};
 	public static UserServiceImpl getInstance() throws ClassNotFoundException, SQLException {
 		if(instance==null)
 			instance = new UserServiceImpl();
-		return instance;
-			
+		return instance ;
 	}
 	
-	
-	//회원가입(+TX처필요)
+	//회원가입(+TX처리필요)
 	public boolean userJoin(UserDto userDto) throws SQLException{
 		
-		return userDao.insert(userDto)>0;
+		return  userDao.insert(userDto)>0;
+		
 	};
 	
 	//회원조회
@@ -40,4 +39,5 @@ public class UserServiceImpl {
 	
 	//로그아웃
 	
+
 }

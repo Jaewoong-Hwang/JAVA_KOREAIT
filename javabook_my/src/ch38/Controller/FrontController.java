@@ -20,8 +20,9 @@ public class FrontController {
 	}
 	//초기화
 	private void init() {
-		//인증요청 API(ENPOINT: 서브컨트롤러객체 저장)
+		//인증요청 API(ENDPOINT: 서브컨트롤러객체 저장)
 		map.put("/user", new UserController());
+		map.put("/book", new BookController());
 		
 	}
 	
@@ -29,8 +30,8 @@ public class FrontController {
 	public Map<String,Object> execute (Map<String,Object> params) 
 	{
 		System.out.println("[FC] execute invoke....");
-		String endPoint = (String)params.get("endPoint");
-		SubController controller = map.get(endPoint);
+		String endPoint = (String)params.get("endPoint"); //사용자의 요청EP를 확인(/boolean)
+		SubController controller = map.get(endPoint); //요청사항을 처리할 SubController
 		return controller.execute(params);
 	}
 }

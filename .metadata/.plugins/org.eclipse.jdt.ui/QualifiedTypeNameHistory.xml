@@ -54,4 +54,6 @@
     <fullyQualifiedTypeName name="Ch36.Domain.Dao.BookDao"/>
     <fullyQualifiedTypeName name="Ch38.Domain.Dto.UserDto"/>
     <fullyQualifiedTypeName name="Ch37_MVC_Add_View_Socket_Thread.Domain.Common.Service.UserServiceImpl"/>
+    <fullyQualifiedTypeName name="Ch37_MVC_Add_View_Socket_Thread.Domain.Common.Service.BookServiceImpl"/>
+    <fullyQualifiedTypeName name="Ch38.Domain.Service.BookServiceImpl"/>
 </qualifiedTypeNameHistroy>

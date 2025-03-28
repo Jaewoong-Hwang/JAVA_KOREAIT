@@ -13,15 +13,16 @@ import Ch38.Domain.Service.UserServiceImpl;
 class ServiceTests {
 
 	@Test
-	@Disabled
-	void test() throws ClassNotFoundException, SQLException {
+	
+	void test() throws ClassNotFoundException, Exception {
 
 		UserServiceImpl userService = UserServiceImpl.getInstance();
-
-		userService.userJoin(new UserDto("bbb", "남길동", "1234", "ROLE_USER"));
+		userService.userJoin(null);
+//		userService.userJoin(new UserDto("bbb", "남길동", "1234", "ROLE_USER"));
 	}
 
 	@Test
+	@Disabled
 
 	void test_2() throws Exception {
 		BookServiceImpl bookService = BookServiceImpl.getInstance();

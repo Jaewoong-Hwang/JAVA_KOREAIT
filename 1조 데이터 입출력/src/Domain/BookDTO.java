@@ -13,11 +13,7 @@ public class BookDTO {
 		this.publisher = publisher;
 		this.isbn = isbn;
 	}
-	@Override
-	public String toString() {
-		return "BookDTO [bookCode=" + bookCode + ", bookName=" + bookName + ", publisher=" + publisher + ", isbn="
-				+ isbn + "]";
-	}
+	
 	public String getBookCode() {
 		return bookCode;
 	}
@@ -44,6 +40,10 @@ public class BookDTO {
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return "BookDTO [bookCode=" + bookCode + ", bookName=" + bookName + ", publisher=" + publisher + ", isbn="
+				+ isbn + "]";
+	}
 	
 }

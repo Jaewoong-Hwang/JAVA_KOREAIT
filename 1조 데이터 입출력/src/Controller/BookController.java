@@ -1,21 +1,30 @@
 package Controller;
 
 import java.util.HashMap;
+
+
 import java.util.Map;
 
 
 import Domain.BookDTO;
+import Service.BookService;
 
 public class BookController implements SUBController{
 
 	
-	public
-	
-	
+	private BookService bookService;
 	Map<String,Object>response;
+	public BookController() {
+	try {
+		bookService = BookService.getInstance();
+	} catch (Exception e) {
+		exceptionHandler(e);
+	}
+}
+	
 	//CRUD
 	@Override
-	public Map<String, Object> execute(Map<String, Object> params) {
+	public Map<String, Object> execute(Map<String, Object> params) throws Exception {
 		System.out.println("[SC] BookController excute invoke...!");
 		
 		response = new HashMap();
@@ -41,8 +50,20 @@ public class BookController implements SUBController{
 			}
 
 			// 02 유효성검증(Data Validation)
+			boolean isOk = isValid(bookDTO);
+			System.out.println("[No-1 도서등록] : 유효성 검증 확인 : " + isOk);
+			if (!isOk) {
+				response.put("status", false);
+//				response.put("message","유효성 체크 오류발생!");	
+				return response;
+			}
 			// 03 관련 서비스 실행
+			boolean isSuccess = bookService.bookJoin(bookDTO);
 			// 04 뷰로 이동(or 내용전달)
+			if (isSuccess) {
+				response.put("status", isSuccess);
+				response.put("message", "도서등록 성공!");
+			}
 			break;
 		case 2: // R - 도서조회(ROLE-회원,사서,관리자)
 			System.out.println("[SC] 도서조회 요청 확인");

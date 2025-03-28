@@ -28,7 +28,7 @@ public class FrontController {
 		}
 		
 		//View로부터 전달하는 요청 처리 
-		public Map<String,Object> execute (Map<String,Object> params)
+		public Map<String,Object> execute (Map<String,Object> params) throws Exception
 		{
 			System.out.println("[FC] execute invoke....");
 			String endPoint =(String)params.get("endPoint"); //사용자의 요청EP를 확인(/book)

@@ -47,13 +47,14 @@
     <fullyQualifiedTypeName name="java.lang.annotation.RetentionPolicy"/>
     <fullyQualifiedTypeName name="java.lang.annotation.ElementType"/>
     <fullyQualifiedTypeName name="Ch36.Domain.Dto.UserDto"/>
-    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="Ch36.Domain.Dao.UserDaoImpl"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="Ch36.Domain.Dao.BookDao"/>
     <fullyQualifiedTypeName name="Ch38.Domain.Dto.UserDto"/>
     <fullyQualifiedTypeName name="Ch37_MVC_Add_View_Socket_Thread.Domain.Common.Service.UserServiceImpl"/>
     <fullyQualifiedTypeName name="Ch37_MVC_Add_View_Socket_Thread.Domain.Common.Service.BookServiceImpl"/>
     <fullyQualifiedTypeName name="Ch38.Domain.Service.BookServiceImpl"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="Domain.BookDAOImpl"/>
 </qualifiedTypeNameHistroy>

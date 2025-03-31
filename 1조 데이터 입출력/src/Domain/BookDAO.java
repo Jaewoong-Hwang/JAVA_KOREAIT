@@ -12,11 +12,12 @@ public interface BookDAO {
 	int update(BookDTO bookDTO) throws Exception;
 
 	int delete(BookDTO bookDTO) throws SQLException;
+	
 	//단건조회
-
 	BookDTO select(BookDTO bookDTO);
-	//다건조회
 
+	//다건조회
 	List<BookDTO> selectAll();
+
 
 }

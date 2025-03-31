@@ -1,131 +1,147 @@
 package Domain;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookDAOImpl implements BookDAO {
-	private Connection conn;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
 
-	private String id = "system";
-	private String pw = "1234";
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
+    private Connection conn;
+    private PreparedStatement pstmt;
+    private ResultSet rs;
 
-	// 싱글톤
-	private static BookDAO instance;
+    private final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+    private final String USER = "system";
+    private final String PASSWORD = "1234";
 
-	private BookDAOImpl() throws Exception{
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		conn = DriverManager.getConnection(url,id,pw);
-	}
+    private static BookDAO instance;
 
-	public static BookDAO getInstance()  throws Exception{
-		if (instance == null)
-			instance = new BookDAOImpl();
-		return instance;
-	};
+    private BookDAOImpl() throws Exception {
+        Class.forName("oracle.jdbc.driver.OracleDriver");
+        conn = DriverManager.getConnection(URL, USER, PASSWORD);
+    }
 
-	@Override
-	public int insert(BookDTO bookDTO) throws Exception {
-		
-		try {
-		pstmt=conn.prepareStatement("insert into tbl_book values(?,?,?,?)");
-		pstmt.setString(1, bookDTO.getBookCode());
-		pstmt.setString(2, bookDTO.getBookName());
-		pstmt.setString(3, bookDTO.getPublisher());
-		pstmt.setString(4, bookDTO.getIsbn());
-		
-		
-		return pstmt.executeUpdate();
-		}catch(SQLException e) {
-			e.printStackTrace();
-			throw new SQLException("BOOKDAO's INSERT SQL EXCEPTION!!");
-		}finally {
-			try {pstmt.close();}catch(Exception e) {}
-		}
-	}
+    public static BookDAO getInstance() throws Exception {
+        if (instance == null)
+            instance = new BookDAOImpl();
+        return instance;
+    }
 
-	@Override
-	public int update(BookDTO bookDTO) throws Exception {
-		
-		try {
-			pstmt=conn.prepareStatement("update into tbl_book values(?,?,?,?)");
-			pstmt.setString(1, bookDTO.getBookCode());
-			pstmt.setString(2, bookDTO.getBookName());
-			pstmt.setString(3, bookDTO.getPublisher());
-			pstmt.setString(4, bookDTO.getIsbn());
-			
-			
-			return pstmt.executeUpdate();
-			}catch(SQLException e) {
-				e.printStackTrace();
-				throw new SQLException("BOOKDAO's UPDATE SQL EXCEPTION!!");
-			}finally {
-				try {pstmt.close();}catch(Exception e) {}
-			}
-		
-		
-	}
+    @Override
+    public int insert(BookDTO dto) throws Exception {
+        String sql = "INSERT INTO tbl_book (book_code, classification_id, book_author, book_name, publisher, isreserve) " +
+                     "VALUES (?, ?, ?, ?, ?, ?)";
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, dto.getBookCode());
+            pstmt.setInt(2, dto.getClassificationId());
+            pstmt.setString(3, dto.getBookAuthor());
+            pstmt.setString(4, dto.getBookName());
+            pstmt.setString(5, dto.getPublisher());
+            pstmt.setInt(6, dto.getIsReserve());
 
-	@Override
-	public int delete(BookDTO bookDTO) throws SQLException {
-		
-		
-		try {
-			pstmt=conn.prepareStatement("delete into tbl_book values(?,?,?,?)");
-			pstmt.setString(1, bookDTO.getBookCode());
-			pstmt.setString(2, bookDTO.getBookName());
-			pstmt.setString(3, bookDTO.getPublisher());
-			pstmt.setString(4, bookDTO.getIsbn());
-			
-			
-			return pstmt.executeUpdate();
-			}catch(SQLException e) {
-				e.printStackTrace();
-				throw new SQLException("BOOKDAO's DELETE SQL EXCEPTION!!");
-			}finally {
-				try {pstmt.close();}catch(Exception e) {}
-			}
-	}
+            return pstmt.executeUpdate();
+        } finally {
+            close();
+        }
+    }
 
-	@Override
-	public BookDTO select(BookDTO bookDTO) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public int update(BookDTO dto) throws Exception {
+        String sql = "UPDATE tbl_book SET classification_id = ?, book_author = ?, book_name = ?, publisher = ?, isreserve = ? WHERE book_code = ?" +
+                     "WHERE book_code = ?";
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, dto.getClassificationId());
+            pstmt.setString(2, dto.getBookAuthor());
+            pstmt.setString(3, dto.getBookName());
+            pstmt.setString(4, dto.getPublisher());
+            pstmt.setInt(5, dto.getIsReserve());
+            pstmt.setInt(6, dto.getBookCode());
 
-	@Override
-	public List<BookDTO> selectAll() {
-	
-		 List<BookDTO> list = new ArrayList<>();
+            return pstmt.executeUpdate();
+        } finally {
+            close();
+        }
+    }
 
-		    try {
-		        pstmt = conn.prepareStatement("SELECT * FROM tbl_book");
-		        rs = pstmt.executeQuery();
+    @Override
+    public int delete(BookDTO dto) throws SQLException {
+        String sql = "DELETE FROM tbl_book WHERE book_code = ?";
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, dto.getBookCode());
 
-		        while (rs.next()) {
-		            BookDTO dto = new BookDTO(
-		                rs.getString("bookCode"),
-		                rs.getString("bookName"),
-		                rs.getString("publisher"),
-		                rs.getString("isbn")
-		            );
-		            list.add(dto);
-		        }
-		    } catch (SQLException e) {
-		        e.printStackTrace();
-		    } finally {
-		        try { if (rs != null) rs.close(); } catch (Exception e) {}
-		        try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
-		    }
+            return pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("BOOKDAO's DELETE SQL EXCEPTION!!");
+        } finally {
+            close();
+        }
+    }
 
-		    return list;
-	}
+    @Override
+    public BookDTO select(BookDTO dto) {
+        String sql = "SELECT * FROM tbl_book WHERE book_code = ?";
+        BookDTO result = null;
 
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, dto.getBookCode());
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                result = new BookDTO(
+                    rs.getInt("book_code"),
+                    rs.getInt("classification_id"),
+                    rs.getString("book_author"),
+                    rs.getString("book_name"),
+                    rs.getString("publisher"),
+                    rs.getInt("isreserve")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close();
+        }
+
+        return result;
+    }
+
+    @Override
+    public List<BookDTO> selectAll() {
+        List<BookDTO> list = new ArrayList<>();
+        String sql = "SELECT * FROM tbl_book";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                BookDTO dto = new BookDTO(
+                    rs.getInt("book_code"),
+                    rs.getInt("classification_id"),
+                    rs.getString("book_author"),
+                    rs.getString("book_name"),
+                    rs.getString("publisher"),
+                    rs.getInt("isreserve")
+                );
+                list.add(dto);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close();
+        }
+
+        return list;
+    }
+
+    private void close() {
+        try { if (rs != null) rs.close(); } catch (Exception e) {}
+        try { if (pstmt != null) pstmt.close(); } catch (Exception e) {}
+    }
 }
